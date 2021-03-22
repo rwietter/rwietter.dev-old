@@ -14,8 +14,9 @@ const PostItem = ({
   postBackground,
 }) => {
   
-  const defaultImage = require(`../../images/posts/23-04-2021/android.${'svg' || 'png' || 'jpg'}`);
-	const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
+  // const defaultImage = require(`../../images/posts/23-04-2021/android.${'svg' || 'png' || 'jpg'}`);
+
+	// const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
 
   return (
     <S.PostItemLink
@@ -27,7 +28,7 @@ const PostItem = ({
       direction="right"
       duration={0.6}
       bg="var(--background)"
-      background={postImage}
+      // background={postImage}
       loading="lazy"
     >
       <S.PostItemWrapper role="banner">

@@ -40,7 +40,7 @@ const MenuBar = () => {
 	}
 	
   return (
-    <S.ManuBarWrapper role="navation">
+    <S.ManuBarWrapper role="navigation">
       <S.MenuBarGroup>
         <S.MenuBarLink
           to="/"

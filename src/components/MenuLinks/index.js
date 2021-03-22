@@ -6,7 +6,7 @@ import * as S from './styles';
 const MenuLinks = () => {
   return (
     <S.MenuLinksWrapper>
-      <S.MenuLinksList role="navation">
+      <S.MenuLinksList role="navigation">
         {links?.map(({ label, url }) => (
           <S.MenuLinksItem title={label} key={label}>
             <S.MenuLinksLink

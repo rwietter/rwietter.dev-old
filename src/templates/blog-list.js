@@ -17,9 +17,9 @@ const BlogList = props => {
   const nextPage = !isLast && `/page/${currentPage + 1}`
 
   return (
-    <Layout role="main">
+    <Layout>
       <ListWapper>
-        {posts[0] &&
+        {
           posts?.map(post => (
             <PostItem
               key={post.node.id}

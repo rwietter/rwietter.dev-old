@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: rwietter/rwietter.dev
+  branch: master
+  site_domain: https://rwietter.netlify.app
+publish_mode: editorial_workflow
+media_folder: "static/assets/img"
+public_folder: "assets/img"
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "React",
+              "React Native",
+              "JavaScript",
+              "TypeScript",
+              "Elixir",
+              "Algoritmos",
+              "Estruturas de Dados",
+              "Git",
+              "Big O",
+            ],
+        }
+      - {
+          label: "Background",
+          name: "background",
+          widget: "select",
+          options:
+            [
+              { label: React, value: "#00A8FF" },
+              { label: React Native, value: "#00A8FF" },
+              { label: Git, value: "#00A8FF" },
+              { label: TypeScript, value: "#00A8FF" },
+              { label: JavaScript, value: "#F46819" },
+              { label: Elixir, value: "#F46819" },
+              { label: React, value: "#F46819" },
+              { label: Estruturas de Dados, value: "#F46819" },
+              { label: React, value: "#FD0061" },
+              { label: Algoritmos, value: "#FD0061" },
+              { label: Big O, value: "#FD0061" },
+            ],
+        }
+      - { label: "PostBackground", name: "postBackground", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

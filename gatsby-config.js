@@ -109,10 +109,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        sitemapSize: 5000,
-      },
+      resolve: `gatsby-plugin-netlify-cms`,
     },
   ],
 }

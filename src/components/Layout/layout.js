@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
       <TransitionPortal level="top">
         <Sidebar />
       </TransitionPortal>
-      <S.LayoutMain role="main content" aria-controls="main">
+      <S.LayoutMain>
         {children}
       </S.LayoutMain>
       <TransitionPortal level="top">

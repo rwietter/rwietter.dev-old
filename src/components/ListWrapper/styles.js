@@ -6,6 +6,7 @@ const ListWapper = styled.section`
     grid-area: posts;
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(390px, min-content));
 
     background: var(--background);
     border-bottom: 1px solid var(--borders);
