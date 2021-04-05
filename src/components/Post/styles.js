@@ -5,6 +5,7 @@ export const PostHeader = styled.header`
   color: var(--postColor);
   margin: 1rem auto;
   max-width: 70rem;
+  width: 100%;
   padding: 2rem;
 
   ${media.lessThan("large")`
@@ -22,6 +23,7 @@ export const PostContainer = styled.div`
 
   ${media.lessThan("large")`
     padding: 2rem 0;
+    width: 100%;
     max-width: 100%;
   `}
 `
@@ -90,6 +92,7 @@ export const MainContent = styled.section`
   .tags,
   iframe,
   .button-post {
+    font-family: var(--font-secondary);
     color: var(--postColor);
     font-size: 1.25rem;
     font-weight: 300;
@@ -110,6 +113,7 @@ export const MainContent = styled.section`
   h3,
   h4,
   h5 {
+    font-family: var(--font-secondary);
     margin: 2.4rem auto 1rem;
   }
   ul,

@@ -8,9 +8,9 @@ const SocialLinks = () => {
   return (
     <S.SocialLinksWrapper>
       <S.SocialLinksList>
-        {links?.map(({ label, url }) => {
+        {links?.map(({ label, url, color }) => {
           const Icon = icons[label]
-          
+
           return (
             <S.SocialLinksItem key={label}>
               <S.SocialLinksLink
@@ -18,6 +18,7 @@ const SocialLinks = () => {
                 title={label}
                 target="_blank"
                 rel="noopener noreferrer"
+                hover={color}
               >
                 <S.IconWrapper>
                   <Icon />

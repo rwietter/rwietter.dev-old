@@ -3,6 +3,11 @@ import React from 'react';
 
 import * as S from './styles';
 
+const TagComponent = ({ category, tag }) => {
+  if (tag) return <S.PostItemTag background={tag} />
+  return <S.PostItemTag>{category || ""}</S.PostItemTag>
+}
+
 const PostItem = ({
   slug,
   background = "var(--postColor)",
@@ -13,10 +18,10 @@ const PostItem = ({
   description,
   postBackground,
 }) => {
-  
-  // const defaultImage = require(`../../images/posts/23-04-2021/android.${'svg' || 'png' || 'jpg'}`);
 
-	// const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
+  const defaultImage = require(`../../images/posts/23-04-2021/android.svg`)
+  const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
+  const tagImage = require(`../../images/posts/tag/${category || 'react'}.svg`)
 
   return (
     <S.PostItemLink
@@ -27,12 +32,12 @@ const PostItem = ({
       cover
       direction="right"
       duration={0.6}
-      bg="var(--background)"
-      // background={postImage}
-      loading="lazy"
+      background={postImage}
+      width="100%"
+      height="100%"
     >
       <S.PostItemWrapper role="banner">
-        <S.PostItemTag background={background}>{category}</S.PostItemTag>
+        <TagComponent category={category} tag={tagImage} />
         <S.PostItemInfo>
           <S.PostItemDate>
             {date} - {timeToRead} minutos de leitura

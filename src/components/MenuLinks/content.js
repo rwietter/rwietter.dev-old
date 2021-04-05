@@ -4,7 +4,7 @@ const links = [
     url: '/'
   },
   {
-    label: 'Sobre Mim',
+    label: 'Sobre',
     url: '/about'
   }
 ]
