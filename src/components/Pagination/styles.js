@@ -7,7 +7,8 @@ const Container = styled.section`
   justify-content: space-between;
 
   padding: 1.5rem 3rem;
-
+  transition: all .35s ease;
+  background: var(--mediumBackground);
   color: var(--texts);
   border-top: 1px solid var(--borders);
 

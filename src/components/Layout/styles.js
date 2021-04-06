@@ -13,7 +13,7 @@ export const LayoutMain = styled.main`
   background: var(--background);
   min-height: 100vh;
   padding: 0 3.75rem 0 7rem;
-  transition: background .35s, color .35s ease;
+  transition: background 0.35s, color 0.35s ease;
   width: 100%;
 
   body#grid & {
@@ -24,6 +24,6 @@ export const LayoutMain = styled.main`
   }
 
   ${media.lessThan("large")`
-		padding: 4.125rem 0 3rem 0;
+		padding: 5.3rem 0 3rem 0;
 	`}
 `
