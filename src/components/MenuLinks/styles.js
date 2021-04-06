@@ -11,7 +11,7 @@ export const MenuLinksWrapper = styled.div`
 export const MenuLinksList = styled.nav`
   font-family: var(--font-secondary);
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
 `
 
 export const MenuLinksItem = styled.li`

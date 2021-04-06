@@ -17,7 +17,7 @@ const SearchPosts = () => {
 	return (
     <SearchWrapper>
       <InstantSearch searchClient={searchClient} indexName={indexName}>
-        <SearchBox autoFocus translations={{ placeHolder: "Pesquisar..." }} />
+        <SearchBox translations={{ placeHolder: "Pesquisar..." }} />
 				<Stats translations={{
 					stats(nbHits, timeSpentMs) {
 					return `${nbHits} resultados encontrados em ${timeSpentMs}ms`

@@ -10,10 +10,9 @@ const TagComponent = ({ category, tag }) => {
 
 const PostItem = ({
   slug,
-  background = "var(--postColor)",
   category,
   date,
-  timeToRead,
+  timeToRead = '1',
   title,
   description,
   postBackground,
@@ -22,7 +21,7 @@ const PostItem = ({
   const defaultImage = require(`../../images/posts/23-04-2021/android.svg`)
   const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
   const tagImage = require(`../../images/posts/tag/${category || 'react'}.svg`)
-
+  
   return (
     <S.PostItemLink
       to={slug}
@@ -55,7 +54,7 @@ PostItem.propTypes = {
   background: PropTypes.string,
   category: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  timetoRead: PropTypes.string.isRequired,
+  timetoRead: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 }

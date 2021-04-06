@@ -71,7 +71,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
 		--deckgo-highlight-code-font-size: 1.3rem;
 		--deckgo-highlight-code-header-user-line-height: 30px;
-		--deckgo-highlight-code-font-family: 'Fantasque Sans Mono', fantasy, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		--deckgo-highlight-code-font-family: 'Fantasque Sans Mono', Ubuntu, sans-serif, -apple-system;
 		--deckgo-highlight-code-carbon-margin: 3.5rem 1.2rem;
 		--deckgo-highlight-code-padding: 1.3rem;
     --deckgo-highlight-code-background: var(--inverse);
