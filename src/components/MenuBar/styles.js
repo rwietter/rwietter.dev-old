@@ -66,12 +66,6 @@ export const MenuBarItem = styled.span`
     transition: color 0.35s ease;
   }
 
-  &.display {
-    ${media.lessThan("large")`
-      display: none;
-    `}
-  }
-
   ${media.greaterThan("large")`
     &:hover {
       color: var(--highlight);
