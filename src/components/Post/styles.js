@@ -43,7 +43,7 @@ export const PostTitle = styled.h1`
 
 export const PostDescription = styled.h2`
   font-size: 2rem;
-  font-weight: 200;
+  font-weight: 300;
   padding: 0 1.4rem;
 
   ${media.lessThan("large")`
@@ -55,7 +55,7 @@ export const PostDescription = styled.h2`
 
 export const PostDate = styled.p`
   font-size: 1.1rem;
-  font-weight: 100;
+  font-weight: 300;
   padding: 0 1.4rem;
 
   ${media.lessThan("large")`
@@ -95,7 +95,7 @@ export const MainContent = styled.section`
     font-family: var(--font-secondary);
     color: var(--postColor);
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
     letter-spacing: 0.069rem;
     padding: 0 1.4rem;

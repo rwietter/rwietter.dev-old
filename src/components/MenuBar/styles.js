@@ -40,11 +40,9 @@ export const MenuBarGroup = styled.div`
 
 export const MenuBarLink = styled(AniLink)`
   display: block;
-  &.active {
-    span {
-      color: var(--highlight);
-      transition: color .35s ease;
-    }
+  &.active span svg {
+    color: var(--highlight);
+    transition: color .35s ease;
   }
 `
 

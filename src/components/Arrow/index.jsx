@@ -3,16 +3,15 @@ import React from 'react';
 const ArrowRight = ({ stroke }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-arrow-narrow-right"
+    className="icon icon-tabler icon-tabler-arrow-narrow-right"
     width="44"
     height="44"
     viewBox="0 0 24 24"
-    stroke-width="1.5"
+    strokeWidth="1.5"
     stroke={stroke || "var(--texts)"}
     fill="none"
-    stroke-linecap="round"
-    stro
-    ke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
   >
     <title>próximo</title>
     <description>ir para o próximo</description>
@@ -26,15 +25,15 @@ const ArrowRight = ({ stroke }) => (
 const ArrowLeft = ({ stroke }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-arrow-narrow-left"
+    className="icon icon-tabler icon-tabler-arrow-narrow-left"
     width="44"
     height="44"
     viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke={stroke || 'var(--texts)'}
+    strokeWidth="1.5"
+    stroke={stroke || "var(--texts)"}
     fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
   >
     <title>voltar</title>
     <description>voltar para o post anterior</description>

@@ -35,7 +35,7 @@ export const PostItemWrapper = styled.section`
   align-items: center;
 
   width: 100%;
-  padding: 2rem 3rem;
+  padding: 2rem 1rem;
   border-bottom: 2px solid var(--borders);
   transition: border-bottom 0 ease;
 

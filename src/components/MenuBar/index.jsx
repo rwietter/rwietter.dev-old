@@ -55,6 +55,7 @@ const MenuBar = () => {
           cover
           direction="right"
           duration={0.6}
+          activeClassName="active"
           bg="var(--background)"
         >
           <S.MenuBarItem>
@@ -67,6 +68,7 @@ const MenuBar = () => {
           cover
           direction="right"
           duration={0.6}
+          activeClassName="active"
           bg="var(--background)"
         >
           <S.MenuBarItem>
