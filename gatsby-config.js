@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `rwietter`,
     description: `Lorem ipsum`,
-    position: `Front-end developer`,
+    position: `Front-end`,
     author: `@rwietter`,
     siteUrl: `https://rwietter.dev/`,
   },

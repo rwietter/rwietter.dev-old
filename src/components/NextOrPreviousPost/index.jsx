@@ -7,10 +7,10 @@ import { RecommendedLink, RecommendedWrapper } from './styles';
 const NextOrPreviousPost = ({ nextPost, previousPost }) => {
   return (
     <RecommendedWrapper>
-      {previousPost && (
+      {nextPost && (
         <RecommendedLink
-          key={previousPost.id}
-          to={previousPost.fields.slug}
+          key={nextPost.id}
+          to={nextPost.fields.slug}
           cover
           direction="left"
           duration={0.6}
@@ -18,20 +18,20 @@ const NextOrPreviousPost = ({ nextPost, previousPost }) => {
           className="previous"
         >
           <ArrowLeft stroke="var(--postColor)" />
-          {previousPost.frontmatter.title}
+          {nextPost.frontmatter.title}
         </RecommendedLink>
       )}
-      {nextPost && (
+      {previousPost && (
         <RecommendedLink
-          key={nextPost.id}
-          to={nextPost.fields.slug}
+          key={previousPost.id}
+          to={previousPost.fields.slug}
           className="next"
           cover
           direction="right"
           duration={0.6}
           bg="var(--background)"
         >
-          {nextPost.frontmatter.title}
+          {previousPost.frontmatter.title}
           <ArrowRight stroke="var(--postColor)" />
         </RecommendedLink>
       )}

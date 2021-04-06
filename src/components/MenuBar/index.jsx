@@ -6,11 +6,9 @@ import { Grid, Home } from 'styled-icons/boxicons-solid';
 
 import * as S from './styles';
 
-const set = new Set();
-
 const MenuBar = () => {
-  const [theme, setTheme] = useState(null)
-  const [display, setDisplay] = useState(null)
+  const [theme, setTheme] = useState('dark')
+  const [display, setDisplay] = useState('list')
 
   const isDark = theme === "dark"
   const isList = display === "list"
@@ -22,13 +20,13 @@ const MenuBar = () => {
     }
   }, [])
 
-	useEffect(() => {
+  useEffect(() => {
     if (window) {
       setDisplay(window.__display)
       window.__onDisplayChange = () => setDisplay(window.__display)
     }
-	}, [])
-	
+  }, [])
+
   const handleChangeTheme = () => {
     const preferredTheme = isDark ? "light" : "dark"
     window.__setPreferredTheme(preferredTheme)
@@ -37,8 +35,17 @@ const MenuBar = () => {
   const handleChangeDisplay = () => {
     const preferredDisplay = isList ? "grid" : "list"
     window.__setPreferredDisplay(preferredDisplay)
-	}
-	
+  }
+
+  const handleToTop = () => {
+    const position = document.body.scrollTop || document.documentElement.scrollTop
+    let scrollAnimation;
+    if (position) {
+      window.scrollBy(0, -Math.max(1, Math.floor(position / 10)))
+      scrollAnimation = setTimeout(handleToTop, 30)
+    } else clearTimeout(scrollAnimation);
+  }
+
   return (
     <S.ManuBarWrapper role="navigation">
       <S.MenuBarGroup>
@@ -85,7 +92,7 @@ const MenuBar = () => {
           {isList ? <List /> : <Grid />}
         </S.MenuBarItem>
         <S.MenuBarItem title="Go top">
-          <Arrow />
+          <Arrow onClick={handleToTop} />
         </S.MenuBarItem>
       </S.MenuBarGroup>
     </S.ManuBarWrapper>

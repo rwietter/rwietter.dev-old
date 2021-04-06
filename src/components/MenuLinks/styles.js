@@ -9,6 +9,7 @@ export const MenuLinksWrapper = styled.div`
 `
 
 export const MenuLinksList = styled.nav`
+  font-family: var(--font-secondary);
   font-size: 1.2rem;
   font-weight: 300;
 `
@@ -18,7 +19,27 @@ export const MenuLinksItem = styled.li`
   list-style: none;
 
   .active {
-    color: var(--postColor);
+    position: relative;
+    color: var(--active);
+    transition: background 0.4s, color 0.4s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      right: -9px;
+      top: -7px;
+      border-radius: 50%;
+      background: var(--active);
+      transition: background 0.4s, color 0.4s ease;
+    }
+    &:hover::after {
+      background: var(--active);
+    }
+    &:hover {
+      color: var(--active);
+    }
   }
 `
 
@@ -29,6 +50,6 @@ export const MenuLinksLink = styled(AniLink)`
   transition: color 0.5s;
 
   &:hover {
-    color: var(--highlight);
+    color: var(--active);
   }
 `

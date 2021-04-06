@@ -16,7 +16,7 @@ export const ManuBarWrapper = styled.aside`
 
   background: var(--mediumBackground);
 
-  transition: background 0.5s;
+  transition: background 0.35s;
 	
   ${media.lessThan("large")`
     border-top: 1px solid var(--borders);
@@ -43,6 +43,7 @@ export const MenuBarLink = styled(AniLink)`
   &.active {
     span {
       color: var(--highlight);
+      transition: color .35s ease;
     }
   }
 `
@@ -55,13 +56,16 @@ export const MenuBarItem = styled.span`
   padding: 1.1rem;
   position: relative;
   width: 3.75rem;
+  transition: color 0.35s ease;
 
   &:hover {
     color: var(--highlight);
+    transition: color 0.35s ease;
   }
 
   &.dark {
     color: var(--highlight);
+    transition: color 0.35s ease;
   }
 
   &.display {
@@ -73,6 +77,7 @@ export const MenuBarItem = styled.span`
   ${media.greaterThan("large")`
     &:hover {
       color: var(--highlight);
+      transition: color 0.35s ease;
     }
   `}
 

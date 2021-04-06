@@ -2,15 +2,16 @@ import styled from 'styled-components';
 
 const ListWapper = styled.section`
   body#grid & {
-    display: grid;
     grid-area: posts;
-    gap: 10px;
+    display: grid;
+    grid-gap: .5rem;
     grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(390px, min-content));
 
     background: var(--background);
     border-bottom: 1px solid var(--borders);
-    padding: 20px 1rem;
+    transition: background .35s, border .35s ease;
+    padding: 10px;
+    min-height: calc(100vh - 110px);
   }
 `
 

@@ -4,18 +4,30 @@ import styled from 'styled-components';
 export const PostItemLink = styled(AniLink)`
   display: flex;
   text-decoration: none;
-  background: var(--mediumBackground);
+  background: var(--background);
+  color: var(--inverse);
+  transition: color 0.35s, background 0.35s ease;
+  font-family: var(--font-secondary);
 
-  color: var(--texts);
   &:hover {
     color: var(--highlight);
+    background: var(--mediumBackground);
   }
 
   body#grid & {
-    border-radius: 20px;
-    background: var(--mediumBackground) no-repeat center center;
-    background-size: cover;
-    object-fit: cover;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    color: var(--texts);
+    background-color: var(--mediumBackground);
+
+    transition: color 0.35s, background 0.35s ease;
+
+    &:hover {
+      background: url(${props => props.background}) no-repeat center center;
+      background-size: cover;
+      object-fit: cover;
+    }
   }
 `
 export const PostItemWrapper = styled.section`
@@ -24,15 +36,11 @@ export const PostItemWrapper = styled.section`
 
   width: 100%;
   padding: 2rem 3rem;
-
-  border-bottom: 1px solid var(--borders);
+  border-bottom: 2px solid var(--borders);
+  transition: border-bottom 0 ease;
 
   body#grid & {
-    border: none;
-    padding: 2rem 1rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    border-bottom: 0;
   }
 `
 
@@ -41,21 +49,21 @@ export const PostItemTag = styled.p`
   align-items: center;
   justify-content: center;
 
-  max-height: auto;
-  max-height: 30px;
-  min-width: auto;
-  min-width: 50px;
+  height: 5rem;
+  width: 4.8rem;
+  border-radius: 50%;
   padding: 8px;
   margin-left: 1.5rem;
-  border-radius: 2px;
 
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
 
   color: var(--postColor);
-  background: ${props =>
-    props.background ? props.background : "var(--postColor)"};
+  background: url(${props => props.background}) no-repeat center center;
+  background-size: 100% 100%;
+  object-fit: cover;
+  transition: color 0.35s, background 0.35s ease;
 `
 
 export const PostItemInfo = styled.div`
@@ -71,13 +79,14 @@ export const PostItemInfo = styled.div`
 
 export const PostItemDate = styled.time`
   font-size: 0.9rem;
+  line-height: 1.15;
 `
 
 export const PostItemTitle = styled.h1`
   font-size: 1.6rem;
   font-weight: 700;
 
-  margin: 0.2rem 0 0.5rem;
+  margin: .7rem 0 0.5rem;
 
 	body#grid & {
 		line-height: 1.1;

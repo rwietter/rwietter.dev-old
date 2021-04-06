@@ -2,10 +2,11 @@ import algoliasearch from 'algoliasearch/lite';
 import React from 'react';
 import { Hits, InstantSearch, SearchBox, Stats } from 'react-instantsearch-dom';
 
-import { HitPost } from './HitPosts';
+import HitPost from './HitPosts';
 import { SearchWrapper } from './styles';
 
 const SearchPosts = () => {
+  
 	const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY

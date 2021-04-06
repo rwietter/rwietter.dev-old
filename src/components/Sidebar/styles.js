@@ -3,16 +3,16 @@ import media from 'styled-media-query';
 const { default: styled } = require("styled-components")
 
 export const SidebarWrapper = styled.aside`
-  align-items: center;
-  border-right: 1px solid var(--borders);
-  background: var(--mediumBackground);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background: var(--mediumBackground);
   height: 100vh;
   position: fixed;
   padding: 2rem;
   text-align: center;
-  width: 20rem;
+  width: 7rem;
+  transition: background 0.35s;
 
   ${media.lessThan("large")`
 		height: auto;

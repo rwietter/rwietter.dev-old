@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
    License: none (public domain)
   */
 
-	@font-face {
+	@font-face { 
   	font-family: 'Fantasque Sans Mono';
   	src: url('../../static/fonts/FantasqueSansMono/Webfonts/FantasqueSansMono-Regular.woff2') format('woff2'), /* Super Modern Browsers */
        	 url('../../static/fonts/FantasqueSansMono/Webfonts/FantasqueSansMono-Regular.woff') format('woff'), /* Pretty Modern Browsers */
@@ -15,45 +15,73 @@ const GlobalStyles = createGlobalStyle`
 				 url('../../static/fonts/FantasqueSansMono/Webfonts/FantasqueSansMono-Regular.svg') format('svg'); /* Legacy iOS */
 	}
 
-	:root {
+  @font-face { 
+  	font-family: 'Montserrat';
+  	src: url('../../static/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       	 url('../../static/fonts/Montserrat/Montserrat-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+      	 url('../../static/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+	}
+
+  /*
+   * --mediumBackground: #1c262f;
+   * --background: #1b2026;
+   */
+
+	body.dark {
+    --borders: #1d2730;
+    --texts: rgb(250,250,250);
+    --postColor: #fff;
+    --highlight: rgb(251, 55, 127);
+    --mediumBackground: rgb(30, 30, 55);
+    --background: rgb(25, 25, 49);
+    --white: #fff;
+    --black: #111;
+    --active: rgb(251, 55, 127);
+    --separator: rgb(100, 100, 100);
+    --inverse: #efefef;
+    --terminal: rgb(30, 30, 55);
+
+    --font-primary: 'Fantasque Sans Mono', 'Lucida Sans', Verdana, sans-serif;
+    --font-secondary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
+  }
+
+  body.light {
+    --borders: #efefef;
+    --postColor: #111;
+    --texts: rgb(25, 25, 49);
+    --highlight: rgb(251, 55, 127);
+    --mediumBackground: #f2f3f7;
+    --background: #fbfbfb;
+    --white: #fff;
+    --black: #111;
+    --active: rgb(251, 55, 127);
+    --separator: rgb(200, 200, 200);
+    --terminal: rgb(30, 30, 55);
+
+    --font-primary: 'Fantasque Sans Mono', 'Lucida Sans', Verdana, sans-serif;
+    --font-secondary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
+  }
+
+
+	body .deckgo-highlight-code-theme-dracula {
+		line-height: 1.5;
+    background: var(--terminal);
+	}
+
+  :root {
 		--deckgo-highlight-code-font-size: 1.3rem;
 		--deckgo-highlight-code-header-user-line-height: 30px;
 		--deckgo-highlight-code-font-family: 'Fantasque Sans Mono', fantasy, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		--deckgo-highlight-code-carbon-margin: 3.5rem 1.2rem;
 		--deckgo-highlight-code-padding: 1.3rem;
+    --deckgo-highlight-code-background: var(--inverse);
+    --deckgo-highlight-code-carbon-box-shadow: rgba(25, 25, 49, 0.70) 0 5px 10px;
 
 		${media.lessThan("large")`
 			--deckgo-highlight-code-font-size: 1rem;
 			--deckgo-highlight-code-carbon-margin: 3.5rem 16px;
 		`}
 	}
-		
-
-	body .deckgo-highlight-code-theme-dracula {
-		line-height: 1.5;
-	}
-			
-	body.dark {
-    --borders: #38444d;
-    --texts: #8899a6;
-    --postColor: #fff;
-    --highlight: #1fa1f2;
-    --mediumBackground: #192734;
-    --background: #16202c;
-    --white: #fff;
-    --black: #222;
-  }
-
-  body.light {
-    --borders: #dedede;
-    --postColor: #111;
-    --texts: #555555;
-    --highlight: #1fa1f2;
-    --mediumBackground: #f0f0f3;
-    --background: #fff;
-    --white: #fff;
-    --black: #222;
-  }
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -105,7 +133,7 @@ const GlobalStyles = createGlobalStyle`
     background: #16202c;
     line-height: 1;
     font-size: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   img {
     display: block;

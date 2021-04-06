@@ -5,7 +5,7 @@ export const SearchWrapper = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  transition: opacity 0.4s;
+  transition: opacity 0.35s, background 0.35s ease;
   .ais-InstantSearch__root {
     display: flex;
     flex-direction: column;
@@ -17,31 +17,45 @@ export const SearchWrapper = styled.section`
     padding: 0.5rem 3rem;
   }
   .ais-SearchBox {
-    padding-top: 6rem;
+    padding-top: 3rem;
   }
   .ais-Stats {
+    transition: color 0.35s ease;
     color: var(--texts);
   }
+  .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input {
+    background: var(--mediumBackground);
+    transition: background 0.35s, border .35s ease;
+    font-size: clamp(0.997rem, calc(12px + 1.05vw), 1.313rem);
+    line-height: 1.1;
+    padding: 1.5rem;
+    &:focus {
+      border: none;
+    }
+  }
 
-	body#grid & {
-		.ais-Hits-list {
-			display: grid;
-			grid-area: posts;
-			gap: 2px;
-			grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-			margin-top: 2rem;
-			background: var(--borders);
-			border-bottom: 1px solid var(--borders);
-			border-top: 1px solid var(--borders);
-		}
-		.ais-Hits-item {
-			background: var(--background);
-		}
-	}
+  body#grid & {
+    .ais-Hits-list {
+      display: grid;
+      grid-area: posts;
+      gap: 0.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+      margin-top: 2rem;
+      padding: 1rem 3.5rem;
+      background: var(--background);
+      transition: background 0.35s ease;
+      min-height: calc(100vh - 3.1rem);
+    }
+    .ais-Hits-item {
+      transition: background 0.35s ease;
+      background: var(--background);
+    }
+  }
 
   .ais-SearchBox-input {
     background: none;
     border: none;
+    transition: border 0.35s, color .35s ease;
     border-bottom: 1px solid var(--borders);
     color: var(--texts);
     display: flex;
