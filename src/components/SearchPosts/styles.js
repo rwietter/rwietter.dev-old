@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const SearchWrapper = styled.section`
   background: var(--background);
@@ -15,6 +16,10 @@ export const SearchWrapper = styled.section`
   .ais-SearchBox,
   .ais-Stats {
     padding: 0.5rem 3rem;
+
+    ${media.lessThan("large")`
+      padding: 1rem;
+    `}
   }
   .ais-SearchBox {
     padding-top: 3rem;
@@ -25,7 +30,7 @@ export const SearchWrapper = styled.section`
   }
   .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input {
     background: var(--mediumBackground);
-    transition: background 0.35s, border .35s ease;
+    transition: background 0.35s, border 0.35s ease;
     font-size: clamp(0.997rem, calc(12px + 1.05vw), 1.313rem);
     line-height: 1.1;
     padding: 1.5rem;
@@ -45,6 +50,11 @@ export const SearchWrapper = styled.section`
       background: var(--background);
       transition: background 0.35s ease;
       min-height: calc(100vh - 3.1rem);
+
+      ${media.lessThan("large")`
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 1rem;
+      `}
     }
     .ais-Hits-item {
       transition: background 0.35s ease;
@@ -55,7 +65,7 @@ export const SearchWrapper = styled.section`
   .ais-SearchBox-input {
     background: none;
     border: none;
-    transition: border 0.35s, color .35s ease;
+    transition: border 0.35s, color 0.35s ease;
     border-bottom: 1px solid var(--borders);
     color: var(--texts);
     display: flex;
