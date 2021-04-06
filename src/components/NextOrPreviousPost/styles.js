@@ -6,7 +6,7 @@ export const RecommendedWrapper = styled.section`
   border-top: 1px solid var(--borders);
   background: var(--mediumBackground);
   display: flex;
-  transition: background .35s, border .35s ease;
+  transition: background .35s, border 0s ease;
 `
 
 export const RecommendedLink = styled(AniLink)`
@@ -22,7 +22,7 @@ export const RecommendedLink = styled(AniLink)`
     background: var(--background);
   }
   &.previous {
-    transition: border-right 0;
+    transition: border 0s;
     border-right: 1px solid var(--borders);
   }
   &.next {

@@ -6,8 +6,9 @@ export const PostItemLink = styled(AniLink)`
   text-decoration: none;
   background: var(--background);
   color: var(--inverse);
-  transition: color 0.35s, background 0.35s ease;
+  transition: all 0.35s ease;
   font-family: var(--font-secondary);
+  border-bottom: 2px solid var(--mediumBackground);
 
   &:hover {
     color: var(--highlight);
@@ -15,7 +16,7 @@ export const PostItemLink = styled(AniLink)`
   }
 
   body#grid & {
-    border-radius: 16px;
+    border-radius: 8px;
     width: 100%;
     height: 100%;
     color: var(--texts);
@@ -36,8 +37,6 @@ export const PostItemWrapper = styled.section`
 
   width: 100%;
   padding: 2rem 1rem;
-  border-bottom: 2px solid var(--borders);
-  transition: border-bottom 0 ease;
 
   body#grid & {
     border-bottom: 0;

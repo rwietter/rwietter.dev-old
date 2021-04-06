@@ -30,7 +30,7 @@ export const SearchWrapper = styled.section`
   }
   .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input {
     background: var(--mediumBackground);
-    transition: background 0.35s, border 0.35s ease;
+    transition: background 0.35s, border 0s ease;
     font-size: clamp(0.997rem, calc(12px + 1.05vw), 1.313rem);
     line-height: 1.1;
     padding: 1.5rem;
@@ -65,7 +65,7 @@ export const SearchWrapper = styled.section`
   .ais-SearchBox-input {
     background: none;
     border: none;
-    transition: border 0.35s, color 0.35s ease;
+    transition: border 0s, color 0.35s ease;
     border-bottom: 1px solid var(--borders);
     color: var(--texts);
     display: flex;
