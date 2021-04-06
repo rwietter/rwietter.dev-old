@@ -17,7 +17,7 @@ export const ManuBarWrapper = styled.aside`
   background: var(--mediumBackground);
 
   transition: background 0.35s;
-	
+
   ${media.lessThan("large")`
     border-top: 1px solid var(--borders);
     bottom: 0;
@@ -26,6 +26,7 @@ export const ManuBarWrapper = styled.aside`
     padding: 0;
     position: fixed;
     width: 100%;
+    transition: all 0.35s ease;
   `}
 `
 
@@ -74,9 +75,9 @@ export const MenuBarItem = styled.span`
   `}
 
   ${media.lessThan("large")`
-    height: 3.2rem;
+    height: 3rem;
     padding: .9rem;
     position: relative;
-    width: 3.2rem;
+    width: 3rem;
   `}
 `

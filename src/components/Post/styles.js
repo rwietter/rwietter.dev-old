@@ -150,11 +150,13 @@ export const MainContent = styled.section`
   blockquote {
     color: var(--postColor);
     border-left: 0.3rem solid var(--postColor);
+    transition: all 0.35s ease;
     padding: 0 1.875rem;
     margin: 3.125rem auto;
   }
   hr {
     border: 1px solid var(--borders);
+    transition: all 0.35s ease;
     margin: 3rem auto;
   }
   #twitter-widget-0,

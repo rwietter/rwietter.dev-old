@@ -36,7 +36,7 @@ export const ProfileAuthor = styled.h1`
 export const ProfilePosition = styled.p`
   display: block;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   width: 100%;
 

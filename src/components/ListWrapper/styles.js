@@ -10,7 +10,7 @@ const ListWapper = styled.section`
 
     background: var(--background);
     border-bottom: 1px solid var(--borders);
-    transition: background 0.35s, border 0s ease;
+    transition: all 0.35s ease;
     padding: 10px;
     min-height: calc(100vh - 110px);
 

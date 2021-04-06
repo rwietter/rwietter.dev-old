@@ -53,7 +53,7 @@ export default function HTML(props) {
                   localStorage.setItem('display', newDisplay);
                 } catch (err) {}
               }
-              setDisplay(preferredDisplay || 'grid');
+              setDisplay(preferredDisplay || 'list');
             })();
           `,
           }}

@@ -7,10 +7,14 @@ const Container = styled.section`
   justify-content: space-between;
 
   padding: 1.5rem 3rem;
-  transition: all .35s ease;
-  background: var(--mediumBackground);
+  background: var(--background);
   color: var(--texts);
   border-top: 1px solid var(--borders);
+  transition: all 0.35s ease;
+
+  &:hover {
+    background: var(--mediumBackground);
+  }
 
   a {
     display: flex;
@@ -30,7 +34,7 @@ const Container = styled.section`
       stroke: var(--postColor);
     }
   }
-	
+
   ${media.lessThan("large")`
     font-size: .8rem;
     padding: 1rem;

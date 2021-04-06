@@ -38,8 +38,8 @@ export const SocialLinksLink = styled.a`
 
 export const IconWrapper = styled.div`
   fill: #bbb;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   transform: scale(1);
   will-change: transform;
   transition: transform .4s ease;

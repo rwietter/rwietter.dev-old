@@ -6,7 +6,7 @@ export const RecommendedWrapper = styled.section`
   border-top: 1px solid var(--borders);
   background: var(--mediumBackground);
   display: flex;
-  transition: background .35s, border 0s ease;
+  transition: all 0.35s ease;
 `
 
 export const RecommendedLink = styled(AniLink)`
@@ -16,13 +16,13 @@ export const RecommendedLink = styled(AniLink)`
   display: flex;
   padding: 1.8rem;
   text-decoration: none;
-  transition: background 0.35s, color 0.35s ease;
+  transition: all 0.35s ease;
   width: 50%;
   &:hover {
     background: var(--background);
   }
   &.previous {
-    transition: border 0s;
+    transition: all 0.35s ease;
     border-right: 1px solid var(--borders);
   }
   &.next {

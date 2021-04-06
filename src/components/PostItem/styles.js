@@ -22,8 +22,6 @@ export const PostItemLink = styled(AniLink)`
     color: var(--texts);
     background-color: var(--mediumBackground);
 
-    transition: color 0.35s, background 0.35s ease;
-
     &:hover {
       background: url(${props => props.background}) no-repeat center center;
       background-size: cover;

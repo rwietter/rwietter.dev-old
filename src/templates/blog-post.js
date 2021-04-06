@@ -3,15 +3,7 @@ import React from 'react';
 
 import Layout from '../components/Layout/layout';
 import { NextOrPreviousPost } from '../components/NextOrPreviousPost';
-import {
-  MainContent,
-  PostContainer,
-  PostDate,
-  PostDescription,
-  PostHeader,
-  PostSeparator,
-  PostTitle,
-} from '../components/Post/styles';
+import { MainContent, PostContainer, PostDate, PostDescription, PostHeader, PostTitle } from '../components/Post/styles';
 import SEO from '../components/seo';
 
 // TODO: remove comments
@@ -36,7 +28,6 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         <PostDescription>{post.frontmatter.description}</PostDescription>
       </PostHeader>
       <MainContent>
-      <PostSeparator />
         <article
           key={post.id}
           dangerouslySetInnerHTML={{ __html: post.html }}
