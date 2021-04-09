@@ -25,15 +25,12 @@ const PostItem = ({
   return (
     <S.PostItemLink
       to={slug}
-      role="link"
       aria-label={`Read more about ${title}`}
       title={title}
       cover
       direction="right"
       duration={0.6}
       background={postImage}
-      width="100%"
-      height="100%"
     >
       <S.PostItemWrapper role="banner">
         <TagComponent category={category} tag={tagImage} />

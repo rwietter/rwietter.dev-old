@@ -1,0 +1,57 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Blog",
+  "steps": [
+    {
+      "file": "src/html.js",
+      "description": "#1 - Começa renderizando esse componente",
+      "line": 4
+    },
+    {
+      "file": "src/templates/blog-list.js",
+      "description": "2 - Ao criar a home page, o gatsby-node irá criar a lista de posts",
+      "line": 10
+    },
+    {
+      "file": "src/templates/blog-list.js",
+      "description": "#3 - O PostItem redireciona para o post em si ",
+      "line": 24
+    },
+    {
+      "file": "src/templates/blog-list.js",
+      "description": "#4 - ListWrapper serve para adicionar lista/grid",
+      "line": 21
+    },
+    {
+      "file": "src/templates/blog-list.js",
+      "description": "#5 - Páginação de posts para navegação",
+      "line": 38,
+      "selection": {
+        "start": {
+          "line": 38,
+          "character": 1
+        },
+        "end": {
+          "line": 39,
+          "character": 1
+        }
+      }
+    },
+    {
+      "file": "src/components/Layout/layout.js",
+      "description": "#6 - Sidebar a esquerda que vai para o topo no mobile",
+      "line": 15
+    },
+    {
+      "file": "src/components/Layout/layout.js",
+      "description": "#7 - o main do blog, mostra a lista de posts e o post específico",
+      "line": 18
+    },
+    {
+      "file": "src/components/Layout/layout.js",
+      "description": "#8 - Menu da direita com opções de pesquisa, home, grid/list, dark theme",
+      "line": 21
+    }
+  ],
+  "ref": "master"
+}

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-export const LayoutWrapper = styled.section`
+export const LayoutWrapper = styled.div`
   display: flex;
 
 	${media.lessThan('large')`

@@ -150,7 +150,6 @@ export const MainContent = styled.section`
   blockquote {
     color: var(--postColor);
     border-left: 0.3rem solid var(--postColor);
-    transition: all 0.35s ease;
     padding: 0 1.875rem;
     margin: 3.125rem auto;
   }
