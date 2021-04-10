@@ -7,7 +7,10 @@ import SEO from '../components/seo';
 const Search = () => {
   return (
     <Layout>
-      <SEO title={"search posts"} />
+      <SEO
+        title="search for posts"
+        description="here, you can search for a specific post from all posts"
+      />
       <SearchPosts />
     </Layout>
   )

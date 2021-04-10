@@ -18,7 +18,7 @@ const SocialLinks = () => {
                 title={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                hover={color}
+                data-hover={color}
               >
                 <S.IconWrapper>
                   <Icon />

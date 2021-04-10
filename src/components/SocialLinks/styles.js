@@ -32,7 +32,7 @@ export const SocialLinksLink = styled.a`
   transition: color 0.5s;
 
   &:hover {
-    color: ${props => props.hover || `var(--highlight)`};
+    color: ${props => props["data-hover"] || `var(--highlight)`};
   }
 `
 

@@ -19,22 +19,21 @@ const BlogList = props => {
   return (
     <Layout>
       <ListWapper>
-        {
-          posts?.map(post => (
-            <PostItem
-              key={post.node.id}
-              slug={post.node.fields.slug}
-              background={post.node.frontmatter.background}
-              category={post.node.frontmatter.category}
-              date={post.node.frontmatter.date}
-              timeToRead={post.node.timeToRead}
-              title={post.node.frontmatter.title}
-              description={post.node.frontmatter.description}
-              postBackground={post.node.frontmatter.postBackground}
-            />
-          ))}
+        {posts?.map(post => (
+          <PostItem
+            key={post.node.id}
+            slug={post.node.fields.slug}
+            background={post.node.frontmatter.background}
+            category={post.node.frontmatter.category}
+            date={post.node.frontmatter.date}
+            timeToRead={post.node.timeToRead}
+            title={post.node.frontmatter.title}
+            description={post.node.frontmatter.description}
+            postBackground={post.node.frontmatter.postBackground}
+          />
+        ))}
       </ListWapper>
-      <SEO title="Home" description="home page" />
+      <SEO title="Home" description="this home contains all the blog posts" />
       <Pagination
         isFirst={isFirst}
         isLast={isLast}

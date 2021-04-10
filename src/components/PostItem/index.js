@@ -19,18 +19,18 @@ const PostItem = ({
 }) => {
 
   const defaultImage = require(`../../images/posts/23-04-2021/android.svg`)
-  const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
+  // const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
   const tagImage = require(`../../images/posts/tag/${category || 'react'}.svg`)
   
   return (
     <S.PostItemLink
       to={slug}
-      aria-label={`Read more about ${title}`}
+      aria-label={`read more about ${title}`}
       title={title}
       cover
       direction="right"
       duration={0.6}
-      background={postImage}
+      data-background={postBackground}
     >
       <S.PostItemWrapper role="banner">
         <TagComponent category={category} tag={tagImage} />

@@ -83,6 +83,11 @@ const GlobalStyles = createGlobalStyle`
 		`}
 	}
 
+  body,
+  html {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -140,5 +145,25 @@ const GlobalStyles = createGlobalStyle`
   	width: 100%;
   	height: auto;
   }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #16171d;
+  border-left: 1px solid #16171d;
+}
+
+::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: rgb(251, 55, 127);
+  border-radius: 10rem;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover,
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: rgb(251, 80, 127);
+}
 `
 export default GlobalStyles

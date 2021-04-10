@@ -23,7 +23,8 @@ export const PostItemLink = styled(AniLink)`
     background-color: var(--mediumBackground);
 
     &:hover {
-      background: url(${props => props.background}) no-repeat center center;
+      background: var(--mediumBackground);
+      background: url(${props => props['data-background']}) no-repeat center center;
       background-size: cover;
       object-fit: cover;
     }
