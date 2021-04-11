@@ -40,6 +40,10 @@ const GlobalStyles = createGlobalStyle`
     --separator: rgb(100, 100, 100);
     --inverse: #efefef;
     --terminal: rgb(30, 30, 55);
+    --icons: rgba(41, 160, 218, 1);
+    --frosted: #4D3E64;
+    --text_underline: #4D3E64;
+    --circles_animation: rgba(251, 55, 127, 0.21);
 
     --font-primary: 'Fantasque Sans Mono', 'Lucida Sans', Verdana, sans-serif;
     --font-secondary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
@@ -54,9 +58,14 @@ const GlobalStyles = createGlobalStyle`
     --background: #fbfbfb;
     --white: #fff;
     --black: #111;
+    --inverse: #1d2730;
     --active: rgb(251, 55, 127);
     --separator: rgb(200, 200, 200);
     --terminal: rgb(30, 30, 55);
+    --icons: rgba(41, 160, 218, 1);
+    --frosted: #4D3E64;
+    --text_underline: rgb(182, 122, 246);
+    --circles_animation: rgba(251, 55, 127, 0.21);
 
     --font-primary: 'Fantasque Sans Mono', 'Lucida Sans', Verdana, sans-serif;
     --font-secondary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
@@ -146,24 +155,35 @@ const GlobalStyles = createGlobalStyle`
   	height: auto;
   }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
+  ::selection {
+    background: var(--highlight);
+    color: var(--white);
+    transition: background .35s, color .35s ease;
+  }
+  ::-moz-selection {
+    background: var(--highlight);
+    color: var(--white);
+    transition: background .35s, color .35s ease;
+  }
 
-::-webkit-scrollbar-track-piece {
-  background-color: #16171d;
-  border-left: 1px solid #16171d;
-}
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-::-webkit-scrollbar-thumb:vertical,
-::-webkit-scrollbar-thumb:horizontal {
-  background-color: rgb(251, 55, 127);
-  border-radius: 10rem;
-}
+  ::-webkit-scrollbar-track-piece {
+    background-color: #16171d;
+    border-left: 1px solid #16171d;
+  }
 
-::-webkit-scrollbar-thumb:vertical:hover,
-::-webkit-scrollbar-thumb:horizontal:hover {
-  background-color: rgb(251, 80, 127);
-}
+  ::-webkit-scrollbar-thumb:vertical,
+  ::-webkit-scrollbar-thumb:horizontal {
+    background-color: rgb(251, 55, 127);
+    border-radius: 10rem;
+  }
+
+  ::-webkit-scrollbar-thumb:vertical:hover,
+  ::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: rgb(251, 80, 127);
+  }
 `
 export default GlobalStyles

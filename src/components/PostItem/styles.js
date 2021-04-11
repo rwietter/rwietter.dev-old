@@ -6,9 +6,9 @@ export const PostItemLink = styled(AniLink)`
   text-decoration: none;
   background: var(--background);
   color: var(--inverse);
-  transition: all 0.35s ease;
   font-family: var(--font-secondary);
   border-bottom: 2px solid var(--mediumBackground);
+  transition: all 0.35s ease;
 
   &:hover {
     color: var(--highlight);
@@ -23,10 +23,8 @@ export const PostItemLink = styled(AniLink)`
     background-color: var(--mediumBackground);
 
     &:hover {
-      background: var(--mediumBackground);
-      background: url(${props => props['data-background']}) no-repeat center center;
-      background-size: cover;
-      object-fit: cover;
+      background: var(--highlight);
+      color: #fff;
     }
   }
 `
@@ -58,7 +56,7 @@ export const PostItemTag = styled.p`
   text-transform: uppercase;
 
   color: var(--postColor);
-  background: url(${props => props.background}) no-repeat center center;
+  background: url(${props => props['data-background']}) no-repeat center center;
   background-size: 100% 100%;
   object-fit: cover;
   transition: color 0.35s, background 0.35s ease;

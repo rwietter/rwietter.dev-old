@@ -19,7 +19,7 @@ export const PostContainer = styled.div`
   margin: auto;
   max-width: 70rem;
   padding: 2rem 5rem;
-  text-align: justify;
+  text-align: left;
 
   ${media.lessThan("large")`
     padding: 2rem 0;
@@ -55,8 +55,22 @@ export const PostDescription = styled.h2`
 
 export const PostDate = styled.p`
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 400;
+  font-family: var(--font-secondary);
   padding: 0 1.4rem;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+
+  span:nth-child(2) {
+    margin-right: 10px;
+  }
+  .time-icon {
+    margin: 0 5px 0 10px;
+  }
+  .date-icon {
+    margin: 0 5px 0 0;
+  }
 
   ${media.lessThan("large")`
     padding: 0 1rem;
@@ -149,7 +163,7 @@ export const MainContent = styled.section`
   }
   blockquote {
     color: var(--postColor);
-    border-left: 0.3rem solid var(--postColor);
+    border-left: 0.3rem solid var(--highlight);
     padding: 0 1.875rem;
     margin: 3.125rem auto;
   }
@@ -228,15 +242,15 @@ export const MainContent = styled.section`
     margin: 1rem auto !important;
   }
   a {
-    border-bottom: 1px dashed var(--postColor);
     color: var(--postColor);
     text-decoration: none;
-    transition: opacity 0.5s;
+    transition: all 0.35s ease;
+    text-decoration: underline wavy var(--text_underline) 1px;
     svg {
       color: var(--postColor);
     }
     &:hover {
-      opacity: 0.8;
+      color: var(--highlight);
     }
   }
 `

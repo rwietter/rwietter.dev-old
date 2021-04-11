@@ -10,7 +10,6 @@ const HitPost = ({ hit }) => (
     category={hit.category}
     title={hit.title}
     description={hit.description}
-    postBackground={hit.postBackground}
     date={hit.date}
     timeToRead={hit.timeToRead}
   />

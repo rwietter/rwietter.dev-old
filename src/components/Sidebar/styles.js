@@ -9,7 +9,7 @@ export const SidebarWrapper = styled.aside`
   background: var(--mediumBackground);
   height: 100vh;
   position: fixed;
-  padding: 2rem;
+  padding: 1rem .5rem;
   text-align: center;
   width: 7rem;
   transition: background 0.35s;

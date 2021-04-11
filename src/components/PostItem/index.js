@@ -3,25 +3,27 @@ import React from 'react';
 
 import * as S from './styles';
 
-const TagComponent = ({ category, tag }) => {
-  if (tag) return <S.PostItemTag background={tag} />
-  return <S.PostItemTag>{category || ""}</S.PostItemTag>
-}
+const TagComponent = props =>
+  props["data-tag"] ? (
+    <S.PostItemTag data-background={props["data-tag"]} />
+  ) : (
+    <S.PostItemTag
+      data-background={() => require("../../images/posts/tag/javascript.svg")}
+    />
+  )
 
 const PostItem = ({
   slug,
   category,
   date,
-  timeToRead = '1',
+  timeToRead = "1",
   title,
   description,
-  postBackground,
 }) => {
+  const tagImage = require(`../../images/posts/tag/${
+    category ?? "javascript"
+  }.svg`)
 
-  const defaultImage = require(`../../images/posts/23-04-2021/android.svg`)
-  // const postImage = require(`../../images/posts/${postBackground}`) || defaultImage
-  const tagImage = require(`../../images/posts/tag/${category || 'react'}.svg`)
-  
   return (
     <S.PostItemLink
       to={slug}
@@ -30,10 +32,9 @@ const PostItem = ({
       cover
       direction="right"
       duration={0.6}
-      data-background={postBackground}
     >
       <S.PostItemWrapper role="banner">
-        <TagComponent category={category} tag={tagImage} />
+        <TagComponent data-category={category} data-tag={tagImage} />
         <S.PostItemInfo>
           <S.PostItemDate>
             {date} - {timeToRead} minutos de leitura

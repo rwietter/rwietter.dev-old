@@ -34,6 +34,7 @@ export const SearchWrapper = styled.section`
     font-size: clamp(0.997rem, calc(12px + 1.05vw), 1.313rem);
     line-height: 1.1;
     padding: 1.5rem;
+    caret-color: var(--highlight);
     &:focus {
       border: none;
     }

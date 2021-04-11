@@ -1,3 +1,5 @@
+import { TimeSlot } from '@styled-icons/entypo/TimeSlot';
+import { DateRange } from '@styled-icons/material-twotone/DateRange';
 import { graphql } from 'gatsby';
 import React from 'react';
 
@@ -17,22 +19,24 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description}
-        image={post.frontmatter.postBackground}
       />
       <PostContainer>
-      <PostHeader role="banner">
-        <PostDate>
-          {post.frontmatter.date} | {post.timeToRead} min de leitura
-        </PostDate>
-        <PostTitle>{post.frontmatter.title}</PostTitle>
-        <PostDescription>{post.frontmatter.description}</PostDescription>
-      </PostHeader>
-      <MainContent>
-        <article
-          key={post.id}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </MainContent>
+        <PostHeader role="banner">
+          <PostDate>
+            <DateRange className="date-icon" size={14} />
+            <span>{post.frontmatter.date}</span> |
+            <TimeSlot className="time-icon" size={14} />
+            <span>{post.timeToRead} min de leitura</span>
+          </PostDate>
+          <PostTitle>{post.frontmatter.title}</PostTitle>
+          <PostDescription>{post.frontmatter.description}</PostDescription>
+        </PostHeader>
+        <MainContent>
+          <article
+            key={post.id}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </MainContent>
       </PostContainer>
       <NextOrPreviousPost nextPost={nextPost} previousPost={previousPost} />
       {/* <Comments url={post.fields.slug} title={post.frontmatter.title} /> */}
@@ -47,11 +51,10 @@ export const query = graphql`
         title
         description
         date(locale: "pt-br", formatString: "DD [de] MMM [de] YYYY")
-				postBackground
       }
       fields {
-				slug
-			}
+        slug
+      }
       html
       timeToRead
       id

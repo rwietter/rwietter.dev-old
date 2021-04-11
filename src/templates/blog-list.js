@@ -29,7 +29,6 @@ const BlogList = props => {
             timeToRead={post.node.timeToRead}
             title={post.node.frontmatter.title}
             description={post.node.frontmatter.description}
-            postBackground={post.node.frontmatter.postBackground}
           />
         ))}
       </ListWapper>
@@ -62,7 +61,6 @@ export const query = graphql`
             date(locale: "pt-br", formatString: "DD [de] MMM [de] YYYY")
             description
             title
-            postBackground
           }
           timeToRead
           fields {

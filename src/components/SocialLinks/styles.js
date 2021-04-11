@@ -1,8 +1,21 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styled-media-query';
+
+const animate = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`
 
 export const SocialLinksWrapper = styled.nav`
   margin-top: 2rem;
+  align-self: flex-start;
   width: 100%;
 
 	${media.lessThan('large')`
@@ -11,15 +24,21 @@ export const SocialLinksWrapper = styled.nav`
 `
 
 export const SocialLinksList = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-flow: column nowrap;
-
+  display: ${props => (props["data-display"] === "flex" ? "flex" : "grid")};
+  grid-template-columns: 1fr 1fr;
   list-style: none;
 
-  > *:not(:last-child){
+  > *:not(:last-child) {
     margin-bottom: 1rem;
+  }
+
+  ${media.lessThan("large")`
+    grid-template-columns: 1fr;
+  `}
+
+  li {
+    padding: ${props =>
+      props["data-display"] === "flex" ? "0 1.2rem 0 0" : "0.5rem"};
   }
 `
 
@@ -38,13 +57,10 @@ export const SocialLinksLink = styled.a`
 
 export const IconWrapper = styled.div`
   fill: #bbb;
-  width: 25px;
-  height: 25px;
-  transform: scale(1);
-  will-change: transform;
-  transition: transform .4s ease;
+  width: 20px;
+  height: 20px;
 
   &:hover {
-    transform: scale(1.1);
+    animation: ${animate} .5s backwards;
   }
 `

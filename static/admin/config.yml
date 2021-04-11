@@ -51,7 +51,6 @@ collections:
               { label: Big O, value: "#FD0061" },
             ],
         }
-      - { label: "PostBackground", name: "postBackground", widget: "string" }
       - {
           label: "Date",
           name: "date",

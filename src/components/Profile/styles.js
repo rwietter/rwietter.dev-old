@@ -33,19 +33,6 @@ export const ProfileAuthor = styled.h1`
 	`}
 `
 
-export const ProfilePosition = styled.p`
-  display: block;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  width: 100%;
-
-  ${media.lessThan("large")`
-		font-size: 0.8rem;
-    margin-top: .3rem;
-	`}
-`
-
 export const ProfileInfoWrapper = styled.div`
   display: flex;
 	flex-direction: column;

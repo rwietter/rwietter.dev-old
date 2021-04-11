@@ -15,7 +15,7 @@ export const MenuLinksList = styled.nav`
 `
 
 export const MenuLinksItem = styled.li`
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   list-style: none;
 
   .active {
@@ -29,7 +29,7 @@ export const MenuLinksItem = styled.li`
       width: 7px;
       height: 7px;
       right: -9px;
-      top: -7px;
+      top: -3px;
       border-radius: 50%;
       background: var(--active);
       transition: background 0.4s, color 0.4s ease;

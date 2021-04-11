@@ -9,7 +9,7 @@ const Profile = () => {
   const {
     site:
     { siteMetadata:
-      { title, position }
+      { title }
     }
   } = useStaticQuery(graphql`
     query SiteData {
@@ -36,8 +36,6 @@ const Profile = () => {
 
         <S.ProfileInfoWrapper>
           <S.ProfileAuthor>{title}</S.ProfileAuthor>
-
-          <S.ProfilePosition>{position}</S.ProfilePosition>
         </S.ProfileInfoWrapper>
       </S.ProfileLink>
     </S.ProfileWrapper>

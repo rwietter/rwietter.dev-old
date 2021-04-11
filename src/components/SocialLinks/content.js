@@ -16,6 +16,11 @@ const links = [
     color: "rgba(41, 160, 218, 1)",
     url: `https://t.me/${username}`,
   },
+  {
+    label: "Codewars",
+    color: "var(--highlight)",
+    url: `https://www.codewars.com/users/${username}`,
+  },
 ]
 
 export { links }
