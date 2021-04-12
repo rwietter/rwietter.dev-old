@@ -152,6 +152,7 @@ export const MainContent = styled.section`
     display: block;
     max-width: 100%;
     margin: 1.875rem auto;
+    width: 100%;
   }
   iframe {
     padding: 0 1.6rem 1.6rem;
