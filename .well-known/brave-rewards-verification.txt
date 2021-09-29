@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: rwietter.netlify.app
+Token: 6e2288b73b1dd4189fdc5dca3a008d935ed057f4a06b324b949123d084015959
