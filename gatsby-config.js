@@ -1,6 +1,13 @@
 require("dotenv").config()
 const queries = require("./src/utils/algolia.query")
 
+require("ts-node").register({
+  compilerOptions: {
+    module: "commonjs",
+    target: "es2017",
+  },
+})
+
 module.exports = {
   siteMetadata: {
     title: `rwietter`,
@@ -10,6 +17,16 @@ module.exports = {
     siteUrl: `https://rwietter.dev/`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-bundle-stats",
+      options: {
+        compare: true,
+        outDir: "./stats",
+        stats: {
+          context: "./src",
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

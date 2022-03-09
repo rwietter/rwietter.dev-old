@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-import * as S from './styles';
+import * as CSS from './styles';
 
 const Avatar = () => {
   const { avatarImage } = useStaticQuery(
@@ -19,7 +19,7 @@ const Avatar = () => {
   )
 
   return (
-    <S.AvatarWrapper
+    <CSS.AvatarWrapper
       alt="author profile"
       title="author profile"
       fluid={avatarImage.childImageSharp.fluid}

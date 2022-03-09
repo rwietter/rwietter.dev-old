@@ -5,23 +5,22 @@ import Avatar from '../Avatar';
 import * as S from './styles';
 
 const Profile = () => {
+  let title;
+  // { site: { siteMetadata: { title }}}
 
-  const {
-    site:
-    { siteMetadata:
-      { title }
-    }
-  } = useStaticQuery(graphql`
-    query SiteData {
-      site {
-        siteMetadata {
-          title,
-          position,
-          description
+  title = useStaticQuery(graphql`
+      query SiteData {
+        site {
+          siteMetadata {
+            title,
+            position,
+            description
+          }
         }
       }
-    }
-  `)
+    `)
+  
+  console.log(title.site.siteMetadata.title)
 
   return (
     <S.ProfileWrapper>
@@ -35,7 +34,7 @@ const Profile = () => {
         <Avatar />
 
         <S.ProfileInfoWrapper>
-          <S.ProfileAuthor>{title}</S.ProfileAuthor>
+          <S.ProfileAuthor>{title.site.siteMetadata.title}</S.ProfileAuthor>
         </S.ProfileInfoWrapper>
       </S.ProfileLink>
     </S.ProfileWrapper>
