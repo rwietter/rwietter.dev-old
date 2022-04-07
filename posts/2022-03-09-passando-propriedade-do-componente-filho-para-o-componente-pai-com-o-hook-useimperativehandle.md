@@ -37,7 +37,7 @@ yarn dev
 
 Projeto criado! Agora, vamos até o `index.tsx` em `/pages/index.tsx` e vamos remover o código desnecessário, deixe como no exemplo abaixo.
 
-```typescript
+```tsx
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
@@ -53,7 +53,7 @@ export default Home
 
 Agora vamos criar o `Modal` . Crie um diretório **`components`** na raiz do projeto e dentro um diretório **`modal`** e crie um arquivo `index.tsx` dentro desse diretório. Dentro do componente modal adicione uma `label` e um `input` com a lógica de abrir o modal quando o estado for verdadeiro.
 
-```typescript
+```tsx
 // components/modal/index.tsx
 import { useState } from "react";
 
@@ -73,7 +73,23 @@ const Modal: React.FC = () => {
 };
 
 export default Modal;
-
 ```
 
-Vamos importal o
+Vamos importar o Modal no App
+
+
+
+```typescript{1,3-4}
+import type { NextPage } from 'next'
+import Modal from '../components/modal'
+
+const Home: NextPage = () => {
+  return (
+    <div>
+      <Modal />
+    </div>
+  )
+}
+
+export default Home
+```
