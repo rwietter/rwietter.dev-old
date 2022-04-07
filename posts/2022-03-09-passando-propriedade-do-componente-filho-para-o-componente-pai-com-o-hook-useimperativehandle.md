@@ -51,7 +51,7 @@ const Home: NextPage = () => {
 export default Home
 ```
 
-Agora vamos criar o Modal . Crie um diretório **components** na raiz do projeto e dentro um diretório **modal** e crie um arquivo `index.tsx` dentro desse diretório. Dentro do componente modal adicione uma label e um input com a lógica de abrir o modal quando o estado for verdadeiro.
+Agora vamos criar o `Modal` . Crie um diretório **components** na raiz do projeto e dentro um diretório **modal** e crie um arquivo `index.tsx` dentro desse diretório. Dentro do componente modal adicione uma label e um input com a lógica de abrir o modal quando o estado for verdadeiro.
 
 ```typescript
 // components/modal/index.tsx
