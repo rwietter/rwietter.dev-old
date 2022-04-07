@@ -75,11 +75,9 @@ const Modal: React.FC = () => {
 export default Modal;
 ```
 
-Vamos importar o Modal no App
+Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um click. Esse evento precisar mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`.
 
-
-
-```typescript{1,3-4}
+```tsx
 import type { NextPage } from 'next'
 import Modal from '../components/modal'
 
@@ -87,6 +85,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Modal />
+      <button onClick={() => {}}>Open Modal</button>
     </div>
   )
 }
