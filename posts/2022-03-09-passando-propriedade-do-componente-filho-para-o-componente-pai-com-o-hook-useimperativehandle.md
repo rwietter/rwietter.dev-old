@@ -75,7 +75,7 @@ const Modal: React.FC = () => {
 export default Modal;
 ```
 
-Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um click. Esse evento precisar mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`.
+Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um click. Esse evento precisar mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`. Mas antes, vamos adicionar um estilo para que o Modal fique visivel.
 
 ```tsx
 import type { NextPage } from 'next'
@@ -92,3 +92,31 @@ const Home: NextPage = () => {
 
 export default Home
 ```
+
+Crie um arquivo de estilo `styles/modal.css` e vamos adicionar um estilo ao Modal. Esse estilo irá posicionar o modal sobre os outros elemento, centralizar seus componentes e adicionar uma largura e altura.
+
+```css
+.modal {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  max-width: 50rem;
+  width: 100%;
+  min-height: 10rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+```
+
+Agora basta importar esse estilo em `pages/_app.tsx`. Dessa forma o estilo já será aplicado ao nosso Modal.
+
+```tsx
+// pages/_app.tsx
+import '../styles/modal.css'
+
+// ...
+```
+
+Agora precisamos referenciar a fução do estado para componente superior. Vamos até o modal e adicionamos
