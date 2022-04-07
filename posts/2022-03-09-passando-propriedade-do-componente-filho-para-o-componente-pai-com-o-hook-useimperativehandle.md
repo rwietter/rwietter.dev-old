@@ -20,8 +20,33 @@ E sobre o hook `useRef`:
 
 Dessa forma, vamos utilizar uma ref para expor um propriedade do componente para o outro de forma imperativa. É claro que é melhor se puder utilizar o estado do componente, mas nem sempre isso é possível.
 
-Para começar, vamos criar o modal que será o componente filho que irá abrir toda vez que o botão de nível superior for clicado.
+Para começar, vamos começar criando um app com o framework Nextjs. Rode no seu terminal o comando abaixo para criar o projeto, entrar no diretório e executá-lo. criar o modal que será o componente filho que irá abrir toda vez que o botão de nível superior for clicado.
+
+```shell
+# crie o projeto
+yarn create next-app --typescript
+
+# entre no diretória criado
+cd my-app
+
+# compila e executa o projeto em localhost
+yarn dev
+
+# abra no navegador o endereço http://localhost:3000
+```
+
+Projeto criado! Agora, vamos até o `index.tsx` em `/pages/index.tsx` e vamos remover o código desnecessário, deixe como no exemplo abaixo.
 
 ```typescript
+import type { NextPage } from 'next'
 
+const Home: NextPage = () => {
+  return (
+    <div>
+ 
+    </div>
+  )
+}
+
+export default Home
 ```
