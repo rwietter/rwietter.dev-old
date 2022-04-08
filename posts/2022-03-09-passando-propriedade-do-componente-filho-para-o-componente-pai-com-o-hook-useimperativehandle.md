@@ -198,3 +198,11 @@ Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando
   );
 // ...
 ```
+
+
+
+### Referências
+
+* [hook useImperativeHandle](https://pt-br.reactjs.org/docs/hooks-reference.html#useimperativehandle)
+* [hook useRef](https://pt-br.reactjs.org/docs/hooks-reference.html#useref)
+* [forwardRef](https://pt-br.reactjs.org/docs/react-api.html#reactforwardref)
