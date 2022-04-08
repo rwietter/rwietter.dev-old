@@ -10,7 +10,7 @@ Olá 👋
 
 Hoje vamos falar de fluxos dos Reactjs. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (top-down), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componete child pelo componente owner, ou seja, de forma bidirecional.
 
-![](assets/img/bidirecional.png)
+![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](assets/img/bidirecional.png)
 
 
 
