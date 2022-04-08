@@ -7,21 +7,21 @@ date: 2022-04-07 09:36:05
 ---
 Olá 👋
 
-Hoje vamos falar de fluxos dos Reactjs. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (top-down), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componete child pelo componente owner, ou seja, de forma bidirecional.
+Hoje vamos falar de fluxos unidirecional e bidirecional no React. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (top-down), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componente child pelo componente owner, ou seja, de forma bidirecional.
 
 ![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](assets/img/bidirecional.png)
 
-Para resolver isso, pode-se elevar o estado (Lifting State Up) de um componente child para um componente owner que irá conter a lógica do componente child. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos compartilhar uma propriedade para o componente owner por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para o componente owner, que o que veremos por aqui.
+Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos expor uma propriedade para o componente *owner* por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para o componente *owner*.
 
 Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
 
-> `O useImperativeHandle` personaliza o valor da instância que está exposta aos componentes pai ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs.
+> `O useImperativeHandle` personaliza o valor da instância que está exposta aos componentes *owner* ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs.
 
 E sobre o hook `useRef`:
 
 > `useRef` retorna um objeto `ref` mutável, no qual a propriedade `current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
-Ou seja, o hook `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente e o hook  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa. É claro que é melhor se puder compartilhar ou elevar o estado do componente, mas nem sempre isso é possível.
+Ou seja, o hook `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente e o hook  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa utilizando essa referência. É claro que é melhor se puder compartilhar ou elevar o estado do componente, mas nem sempre isso é possível.
 
 Vamos começar criando um app com o framework Nextjs. Rode no seu terminal os comandos abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
 
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
 export default Home
 ```
 
-Agora vamos criar o `Modal`. Crie um diretório **`components`** na raiz do projeto e dentro um diretório **`modal`** e crie um arquivo `index.tsx`. Dentro do componente modal adicione uma `label` e um `input` com a lógica de abrir o modal quando o estado for verdadeiro.
+Vamos criar nosso componente `Modal`. Crie um diretório `components` na raiz do projeto e dentro dele um diretório `modal` e crie um arquivo `index.tsx`. Dentro do componente modal adicione uma `label` e um `input` com a lógica de abrir o modal quando o estado for verdadeiro (*Short Circuit Evaluation*).
 
 ```tsx
 // components/modal/index.tsx
@@ -86,43 +86,108 @@ import Modal from '../components/modal'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <main>
       <Modal />
-      <button onClick={() => {}}>Open Modal</button>
-    </div>
+      <button onClick={() => {}} className="open-modal-button">
+        Open Modal
+      </button>
+    </main>
   )
 }
 
 export default Home
 ```
 
-Crie um arquivo de estilo `styles/modal.css` e vamos adicionar um estilo ao Modal. Esse estilo irá posicionar o modal sobre os outros elemento, centralizar seus componentes e adicionar uma largura e altura.
+Crie um arquivo de estilo `styles/modal.css` e vamos adicionar um estilo ao modal. Esse estilo irá posicionar o modal sobre os outros elemento, centralizar seus componentes e adicionar uma largura e altura.
 
 ```css
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 .modal {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  max-width: 50rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  max-width: 30rem;
   width: 100%;
-  min-height: 10rem;
-  
+  max-height: 15rem;
+  height: 100%;
+  border-radius: 6px;
+  animation: zoomIn 500ms both;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  color: #ffffff;
+}
+
+.modal input {
+  border: none;
+  padding: 0.6rem 1rem;
+  outline: none;
+  margin: 1rem 0;
+}
+
+.modal button {
+  border: none;
+  padding: 0.5rem 3rem;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #111111;
+}
+
+.open-modal-button {
+  border: none;
+  padding: 1rem 3rem;
+  background: #8c4bff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
+.open-modal-button:hover {
+  background: #9e68fc;
 }
 ```
 
-Agora basta importar esse estilo em `pages/_app.tsx`. Dessa forma o estilo já será aplicado ao nosso Modal.
+Vamos até o estilo `global.css` para adicionar esse código que irá por o conteúdo no centro da página.
+
+```css
+/* styles/global.css */
+
+/* ... */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+```
+
+Agora basta importar o arquivo `modal.css`em `pages/_app.tsx`. Dessa forma o estilo já será aplicado ao nosso Modal.
 
 ```tsx
 // pages/_app.tsx
+import '../styles/globals.css'
 import '../styles/modal.css'
 
 // ...
 ```
 
-Agora precisamos referenciar a fução do estado para componente superior. No modal precisamos receber a referência que será criada no componente superior, essa referência é obtida como segundo parâmetro, então precisamos adicionar os types que iremos receber via parâmetro. Na linha 21 vamos exportar o componente como atributo da função `forwardRef`. Essa função torna possível repassar a referência para outros componentes.
+Agora precisamos referenciar a fução do estado para componente superior. No modal precisamos receber a referência que será criada no componente superior, essa referência é obtida como segundo parâmetro, então precisamos adicionar os *types* que iremos receber via parâmetro. Por fim, vamos exportar o componente como atributo da função `forwardRef`. Essa função torna possível repassar a referência para o componente *owner*.
 
 ```tsx
 import { ForwardRefRenderFunction, ReactNode, useState } from "react";
@@ -201,8 +266,11 @@ Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando
 // ...
 ```
 
+- - -
+
 ### Referências
 
-* [hook useImperativeHandle](https://pt-br.reactjs.org/docs/hooks-reference.html#useimperativehandle)
-* [hook useRef](https://pt-br.reactjs.org/docs/hooks-reference.html#useref)
-* [forwardRef](https://pt-br.reactjs.org/docs/react-api.html#reactforwardref)
+* [Hook useImperativeHandle](https://pt-br.reactjs.org/docs/hooks-reference.html#useimperativehandle)
+* [Hook useRef](https://pt-br.reactjs.org/docs/hooks-reference.html#useref)
+* [ForwardRef](https://pt-br.reactjs.org/docs/react-api.html#reactforwardref)
+* [Repositório do projeto](https://github.com/rwietter/blog-posts/tree/main/my-app)
