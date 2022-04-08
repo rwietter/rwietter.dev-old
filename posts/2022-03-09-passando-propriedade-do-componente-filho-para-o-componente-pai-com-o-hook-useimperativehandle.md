@@ -119,4 +119,45 @@ import '../styles/modal.css'
 // ...
 ```
 
-Agora precisamos referenciar a fução do estado para componente superior. Vamos até o modal e adicionamos
+Agora precisamos referenciar a fução do estado para componente superior. No modal precisamos receber a referência que será criada no componente superior, essa referência é obtida como segundo parâmetro, dessa forma, precisamos adicionar os types que iremos receber via parâmetro. Na linha 21 vamos exportar o componente como atributo da função `forwardRef`. Essa função torna possível repassar a referência para outros componentes.
+
+```tsx
+import { ForwardRefRenderFunction, ReactNode, useState } from "react";
+
+interface ModalProps {
+  children?: ReactNode;
+}
+
+const Modal: ForwardRefRenderFunction<ModalRef, ModalProps> = (props, ref) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen((state) => !state);
+
+  return (
+    /* ... */
+  )
+}
+
+export default forwardRef(Modal);
+```
+
+Agora, no componente Home, precisamos criar a `ref` e repassar para o componente modal.  Utilizamos o hook `useRef` para criar uma `ref` e passamos como `generic type` a interface ModalRef que específica a função que iremos referenciar. Exporte essa interface e importe no componente Modal, pois precisamos adicionar o type que recebemos como parâmetro.
+
+```tsx
+export interface ModalRef {
+  handleOpenModal: () => void;
+}
+
+const Home: NextPage = () => {
+  const modalRef = useRef<ModalRef>(null);
+
+  return (
+    <>
+      <Modal ref={modalRef} />
+      <button onClick={() => {}}>Open Modal</button>
+    </>
+  )
+}
+
+export default Home
+```
