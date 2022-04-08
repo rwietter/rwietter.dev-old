@@ -1,7 +1,7 @@
 ---
 title: Fluxo bidirecional no reactjs com useImperativeHandle
 description: como expor uma função de um componente child para o componente owner no reactjs
-category: react
+category: typescript
 background: "#00A8FF"
 date: 2022-04-07 09:36:05
 ---
@@ -80,7 +80,7 @@ export default Modal;
 
 Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um `click`. Esse evento precisa mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`. Mas antes, vamos adicionar um estilo para que o Modal fique visivel.
 
-```tsx
+```language-tsx
 import type { NextPage } from 'next'
 import Modal from '../components/modal'
 
