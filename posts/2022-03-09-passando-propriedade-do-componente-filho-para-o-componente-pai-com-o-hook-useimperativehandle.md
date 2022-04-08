@@ -1,7 +1,6 @@
 ---
-title: Como expor um função do componente filho para o componente pai sem
-  utilizar estados
-description: Elevando uma propriedade do componente filho para o componente pai
+title: Fluxo bidirecional no reactjs com useImperativeHandle
+description: como expor uma função de um componente child para o componente owner no reactjs
 category: react
 background: "#F46819"
 date: 2022-04-07 09:36:05
@@ -12,9 +11,7 @@ Hoje vamos falar de fluxos dos Reactjs. O React normalmente tem o fluxo unidirec
 
 ![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](assets/img/bidirecional.png)
 
-
-
-Já precisou que uma função ou estado de um componente seja compartilhado de um componente filho para o componente pai no react ? Bom, eu já passei por isso algumas vezes e temos algumas formas de resolver isso. Por exemplo, pode-se elevar o estado (Lifting State Up) de um componente para um componente pai que irá conter a lógica do componente filho. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos compartilhar uma propriedade para o componente pai por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para outro componente.
+Para resolver isso, pode-se elevar o estado (Lifting State Up) de um componente child para um componente owner que irá conter a lógica do componente child. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos compartilhar uma propriedade para o componente owner por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para o componente owner, que o que veremos por aqui.
 
 Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
 
@@ -24,9 +21,9 @@ E sobre o hook `useRef`:
 
 > `useRef` retorna um objeto `ref` mutável, no qual a propriedade `current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
-Tendo isso em vista, vamos utilizar uma `ref` para expor um propriedade do componente para o outro de forma imperativa. É claro que é melhor se puder compartilhar ou elevar o estado do componente, mas nem sempre isso é possível.
+Ou seja, o hook `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente e o hook  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa. É claro que é melhor se puder compartilhar ou elevar o estado do componente, mas nem sempre isso é possível.
 
-Para começar, vamos começar criando um app com o framework Nextjs. Rode no seu terminal o comando abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
+Vamos começar criando um app com o framework Nextjs. Rode no seu terminal os comandos abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
 
 ```shell
 # crie o projeto
