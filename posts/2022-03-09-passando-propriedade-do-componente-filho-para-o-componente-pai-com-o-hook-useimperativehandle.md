@@ -6,6 +6,14 @@ category: react
 background: "#F46819"
 date: 2022-04-07 09:36:05
 ---
+Olá 👋
+
+Hoje vamos falar de fluxos dos Reactjs. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (top-down), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componete child pelo componente owner, ou seja, de forma bidirecional.
+
+![](assets/img/bidirecional.png)
+
+
+
 Já precisou que uma função ou estado de um componente seja compartilhado de um componente filho para o componente pai no react ? Bom, eu já passei por isso algumas vezes e temos algumas formas de resolver isso. Por exemplo, pode-se elevar o estado (Lifting State Up) de um componente para um componente pai que irá conter a lógica do componente filho. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos compartilhar uma propriedade para o componente pai por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para outro componente.
 
 Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
