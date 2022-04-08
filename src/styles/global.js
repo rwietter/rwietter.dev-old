@@ -2,19 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import media from 'styled-media-query';
 
 const GlobalStyles = createGlobalStyle`
-  /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-  */
-
-	@font-face { 
-  	font-family: 'Fantasque Sans Mono';
-  	src: url('../../static/fonts/FantasqueSansMono/Webfonts/FantasqueSansMono-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       	 url('../../static/fonts/FantasqueSansMono/Webfonts/FantasqueSansMono-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-      	 url('../../static/fonts/FantasqueSansMono/TTF/FantasqueSansMono-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-				 url('../../static/fonts/FantasqueSansMono/Webfonts/FantasqueSansMono-Regular.svg') format('svg'); /* Legacy iOS */
-	}
-
   @font-face { 
   	font-family: 'Montserrat';
   	src: url('../../static/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'), /* Super Modern Browsers */
@@ -22,10 +9,7 @@ const GlobalStyles = createGlobalStyle`
       	 url('../../static/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
 	}
 
-  /*
-   * --mediumBackground: #1c262f;
-   * --background: #1b2026;
-   */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;800&display=swap');
 
 	body.dark {
     --borders: #1d2730;
@@ -45,8 +29,8 @@ const GlobalStyles = createGlobalStyle`
     --text_underline: #4D3E64;
     --circles_animation: rgba(251, 55, 127, 0.21);
 
-    --font-primary: 'Fantasque Sans Mono', 'Lucida Sans', Verdana, sans-serif;
-    --font-secondary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
+    --font-primary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
+    --font-secondary: 'Inter', 'Lucida Sans', Verdana, sans-serif;
   }
 
   body.light {
@@ -67,8 +51,8 @@ const GlobalStyles = createGlobalStyle`
     --text_underline: rgb(182, 122, 246);
     --circles_animation: rgba(251, 55, 127, 0.21);
 
-    --font-primary: 'Fantasque Sans Mono', 'Lucida Sans', Verdana, sans-serif;
-    --font-secondary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
+    --font-primary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
+    --font-secondary: 'Inter', 'Lucida Sans', Verdana, sans-serif;
   }
 
 
@@ -80,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
 		--deckgo-highlight-code-font-size: 1.3rem;
 		--deckgo-highlight-code-header-user-line-height: 30px;
-		--deckgo-highlight-code-font-family: 'Fantasque Sans Mono', Ubuntu, sans-serif, -apple-system;
+		--deckgo-highlight-code-font-family: 'Inter', Ubuntu, sans-serif, -apple-system;
 		--deckgo-highlight-code-carbon-margin: 3.5rem 1.2rem;
 		--deckgo-highlight-code-padding: 1.3rem;
     --deckgo-highlight-code-background: var(--inverse);
@@ -147,7 +131,7 @@ const GlobalStyles = createGlobalStyle`
     background: var(--background);
     line-height: 1;
     font-size: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Inter;
   }
   img {
     display: block;

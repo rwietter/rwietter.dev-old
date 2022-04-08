@@ -9,10 +9,12 @@ import * as S from './styles';
 const Sidebar = () => {
   return (
     <S.SidebarWrapper>
-      <Profile />
+      <div>
+        <Profile />
+        <Separator />
+        <MenuLinks />
+      </div>
       <SocialLinks />
-      <Separator />
-      <MenuLinks />
     </S.SidebarWrapper>
   )
 }

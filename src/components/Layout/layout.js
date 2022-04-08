@@ -6,6 +6,7 @@ import GlobalStyles from '../../styles/global';
 import MenuBar from '../MenuBar';
 import Sidebar from '../Sidebar/';
 import * as S from './styles';
+import './styles.css';
 
 const Layout = ({ children }) => {
   return (

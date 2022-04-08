@@ -5,7 +5,7 @@ import { icons } from './icons';
 import * as S from './styles';
 
 const SocialLinks = props => (
-  <S.SocialLinksWrapper data-display={props["data-flex"]}>
+  <S.SocialLinksWrapper>
     <S.SocialLinksList data-display={props["data-flex"]}>
       {links?.map(({ label, url, color }) => {
         const Icon = icons[label]

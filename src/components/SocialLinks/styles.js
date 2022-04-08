@@ -25,20 +25,14 @@ export const SocialLinksWrapper = styled.nav`
 
 export const SocialLinksList = styled.ul`
   display: ${props => (props["data-display"] === "flex" ? "flex" : "grid")};
-  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: flex-start;
   list-style: none;
-
-  > *:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
-  ${media.lessThan("large")`
-    grid-template-columns: 1fr;
-  `}
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
 
   li {
-    padding: ${props =>
-      props["data-display"] === "flex" ? "0 1.2rem 0 0" : "0.5rem"};
+    padding: 1rem 0.5rem;
   }
 `
 

@@ -20,8 +20,6 @@ const Profile = () => {
       }
     `)
   
-  console.log(title.site.siteMetadata.title)
-
   return (
     <S.ProfileWrapper>
       <S.ProfileLink
@@ -32,7 +30,6 @@ const Profile = () => {
         bg="var(--background)"
       >
         <Avatar />
-
         <S.ProfileInfoWrapper>
           <S.ProfileAuthor>{title.site.siteMetadata.title}</S.ProfileAuthor>
         </S.ProfileInfoWrapper>
