@@ -1,18 +1,31 @@
-import { TimeSlot } from '@styled-icons/entypo/TimeSlot';
-import { DateRange } from '@styled-icons/material-twotone/DateRange';
-import { graphql } from 'gatsby';
-import React from 'react';
+import { TimeSlot } from "@styled-icons/entypo/TimeSlot"
+import { DateRange } from "@styled-icons/material-twotone/DateRange"
+import { graphql } from "gatsby"
+import React, { useEffect } from "react"
 
-import Layout from '../components/Layout/layout';
-import { NextOrPreviousPost } from '../components/NextOrPreviousPost';
-import { MainContent, PostContainer, PostDate, PostDescription, PostHeader, PostTitle } from '../components/Post/styles';
-import SEO from '../components/seo';
+import Layout from "../components/Layout/layout"
+import { NextOrPreviousPost } from "../components/NextOrPreviousPost"
+import {
+  MainContent,
+  PostContainer,
+  PostDate,
+  PostDescription,
+  PostHeader,
+  PostTitle,
+} from "../components/Post/styles"
+import SEO from "../components/seo"
 
 // TODO: remove comments
 // import { Comments } from '../components/Comments';
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { nextPost, previousPost } = pageContext
+
+  console.log(post.html)
+  useEffect(() => {
+    const doc = document.querySelector("#article")
+    doc.innerHTML = post.html
+  }, [post.html])
 
   return (
     <Layout role="main">
@@ -34,7 +47,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         <MainContent>
           <article
             key={post.id}
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            id="article"
           />
         </MainContent>
       </PostContainer>

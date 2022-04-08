@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import styled from "styled-components"
+import media from "styled-media-query"
 
 export const PostHeader = styled.header`
   color: var(--postColor);
@@ -108,7 +108,7 @@ export const MainContent = styled.section`
   .button-post {
     font-family: var(--font-secondary);
     color: var(--postColor);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.7;
     letter-spacing: 0.069rem;
@@ -148,6 +148,15 @@ export const MainContent = styled.section`
       word-wrap: break-word;
     }
   }
+  p code {
+    padding: 0.4em 0.4em;
+    margin: 0;
+    background-color: #afb8c133;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+      Liberation Mono, monospace;
+    font-size: 14px;
+  }
   img {
     display: block;
     max-width: 100%;
@@ -163,10 +172,16 @@ export const MainContent = styled.section`
     `}
   }
   blockquote {
-    color: var(--postColor);
     border-left: 0.3rem solid var(--highlight);
-    padding: 0 1.875rem;
-    margin: 3.125rem auto;
+    padding: 1rem 0.6rem;
+    margin: 2.125rem 1rem;
+    background: var(--blockquote_color);
+
+    p {
+      color: #d1d1d1;
+      font-family: var(--font-tertiary);
+      font-style: italic;
+    }
   }
   hr {
     border: 1px solid var(--borders);

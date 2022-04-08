@@ -179,7 +179,7 @@ main {
 
 Agora basta importar o arquivo `modal.css`em `pages/_app.tsx`. Dessa forma o estilo já será aplicado ao nosso Modal.
 
-```tsx
+```dart
 // pages/_app.tsx
 import '../styles/globals.css'
 import '../styles/modal.css'

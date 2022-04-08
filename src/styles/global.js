@@ -2,14 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import media from 'styled-media-query';
 
 const GlobalStyles = createGlobalStyle`
-  @font-face { 
-  	font-family: 'Montserrat';
-  	src: url('../../static/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       	 url('../../static/fonts/Montserrat/Montserrat-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-      	 url('../../static/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-	}
-
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
 
 	body.dark {
     --borders: #1d2730;
@@ -28,9 +22,11 @@ const GlobalStyles = createGlobalStyle`
     --frosted: #4D3E64;
     --text_underline: #4D3E64;
     --circles_animation: rgba(251, 55, 127, 0.21);
+    --blockquote_color: rgb(30, 30, 55);
 
-    --font-primary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
-    --font-secondary: 'Inter', 'Lucida Sans', Verdana, sans-serif;
+    --font-primary: 'Montserrat';
+    --font-secondary: 'Open Sans';
+    --font-tertiary: 'Open Sans';
   }
 
   body.light {
@@ -50,9 +46,11 @@ const GlobalStyles = createGlobalStyle`
     --frosted: #4D3E64;
     --text_underline: rgb(182, 122, 246);
     --circles_animation: rgba(251, 55, 127, 0.21);
+    --blockquote_color: rgb(30, 30, 55);
 
-    --font-primary: 'Montserrat', 'Lucida Sans', Verdana, sans-serif;
-    --font-secondary: 'Inter', 'Lucida Sans', Verdana, sans-serif;
+    --font-primary: 'Montserrat';
+    --font-secondary: 'Open Sans';
+    --font-tertiary: 'Open Sans';
   }
 
 
@@ -62,7 +60,7 @@ const GlobalStyles = createGlobalStyle`
 	}
 
   :root {
-		--deckgo-highlight-code-font-size: 1.3rem;
+		--deckgo-highlight-code-font-size: 1.1rem;
 		--deckgo-highlight-code-header-user-line-height: 30px;
 		--deckgo-highlight-code-font-family: 'Inter', Ubuntu, sans-serif, -apple-system;
 		--deckgo-highlight-code-carbon-margin: 3.5rem 1.2rem;
