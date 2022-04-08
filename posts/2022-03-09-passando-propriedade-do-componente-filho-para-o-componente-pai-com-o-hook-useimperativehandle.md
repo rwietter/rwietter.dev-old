@@ -141,7 +141,7 @@ const Modal: ForwardRefRenderFunction<ModalRef, ModalProps> = (props, ref) => {
 export default forwardRef(Modal);
 ```
 
-Agora, no componente Home, precisamos criar a `ref` e repassar para o componente modal.  Utilizamos o hook `useRef` para criar uma `ref` e passamos como `generic type` a interface `ModalRef` que específica a função que iremos referenciar. Exporte essa interface e importe no componente Modal, pois precisamos adicionar o `type` que recebemos como atributo do componente.
+Agora, no componente `Home`, precisamos criar a `ref` e repassar para o componente modal.  Utilizamos o hook `useRef` para criar uma `ref` e passamos como `generic type` a interface `ModalRef` que específica a função que iremos referenciar. Exporte essa interface e importe no componente Modal, pois precisamos adicionar o `type` que recebemos como atributo do componente. 
 
 ```tsx
 export interface ModalRef {
@@ -160,4 +160,41 @@ const Home: NextPage = () => {
 }
 
 export default Home
+```
+
+Ainda no componente Home, só precisamos criar uma função que irá receber a referência da função do Modal e repassar para a propriedade onClick. Feito isso, já iremos ter o modal funcional. 
+
+```tsx
+// ...
+const Home: NextPage = () => {
+  const modalRef = useRef<ModalRef>(null);
+  const handleOpenModal = () => modalRef.current?.handleOpenModal();
+
+  return (
+    <>
+      <Modal ref={modalRef} />
+      <button onClick={handleOpenModal}>Open Modal</button>
+    </>
+  )
+}
+
+// ...
+
+```
+
+Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando estiver aberto. Essa é uma forma simples de repassar um estado quando não podemos ou não queremos criar a lógica de uma funcionalidade em um componente que não precisa saber dessa funcionalidade.  Não é muito comum, nem muito usual utilizar desse modo, mas quando necessário pode ser útil :)
+
+```tsx
+// ...
+  return (
+    <>
+      {isModalOpen && (
+        <div className="modal">
+          {/* ... */}
+          <button onClick={handleOpenModal}>Close</button>
+        </div>
+      )}
+    </>
+  );
+// ...
 ```
