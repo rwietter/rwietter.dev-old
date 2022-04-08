@@ -2,7 +2,7 @@
 title: Fluxo bidirecional no reactjs com useImperativeHandle
 description: como expor uma função de um componente child para o componente owner no reactjs
 category: react
-background: "#F46819"
+background: "#00A8FF"
 date: 2022-04-07 09:36:05
 ---
 Olá 👋
