@@ -141,7 +141,7 @@ const Modal: ForwardRefRenderFunction<ModalRef, ModalProps> = (props, ref) => {
 export default forwardRef(Modal);
 ```
 
-Agora, no componente Home, precisamos criar a `ref` e repassar para o componente modal.  Utilizamos o hook `useRef` para criar uma `ref` e passamos como `generic type` a interface ModalRef que específica a função que iremos referenciar. Exporte essa interface e importe no componente Modal, pois precisamos adicionar o type que recebemos como parâmetro.
+Agora, no componente Home, precisamos criar a `ref` e repassar para o componente modal.  Utilizamos o hook `useRef` para criar uma `ref` e passamos como `generic type` a interface `ModalRef` que específica a função que iremos referenciar. Exporte essa interface e importe no componente Modal, pois precisamos adicionar o `type` que recebemos como atributo do componente.
 
 ```tsx
 export interface ModalRef {
