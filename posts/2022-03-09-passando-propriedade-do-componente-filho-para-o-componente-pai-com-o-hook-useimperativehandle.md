@@ -6,9 +6,7 @@ category: react
 background: "#F46819"
 date: 2022-04-07 09:36:05
 ---
-Vamos supor um problema. Você tem um componente Modal com a lógica de abrir e fechar o modal dentro do próprio componente, mas precisa que a função de abrir o modal seja utilizada em um botão em outro componente da aplicação que fica no mesmo nível ou em um nível superior.
-
-Para resolver isso há algumas formas, por exemplo, pode-se elevar o estado (Lifting State Up) do Modal para um componente pai do Modal e de outro componente como um Header que terá acesso ao estado. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhar a função.  Além disso, podemos compartilhar uma propriedade para o componente pai por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para outro componente.
+Já precisou que uma função ou estado de um componente seja compartilhado de um componente filho para o componente pai no react ? Bom, eu já passei por isso algumas vezes e temos algumas formas de resolver isso. Por exemplo, pode-se elevar o estado (Lifting State Up) de um componente para um componente pai que irá conter a lógica do componente filho. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos compartilhar uma propriedade para o componente pai por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para outro componente.
 
 Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
 
@@ -16,11 +14,11 @@ Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
 
 E sobre o hook `useRef`:
 
-> `useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
+> `useRef` retorna um objeto `ref` mutável, no qual a propriedade `current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
-Dessa forma, vamos utilizar uma ref para expor um propriedade do componente para o outro de forma imperativa. É claro que é melhor se puder utilizar o estado do componente, mas nem sempre isso é possível.
+Tendo isso em vista, vamos utilizar uma `ref` para expor um propriedade do componente para o outro de forma imperativa. É claro que é melhor se puder compartilhar ou elevar o estado do componente, mas nem sempre isso é possível.
 
-Para começar, vamos começar criando um app com o framework Nextjs. Rode no seu terminal o comando abaixo para criar o projeto, entrar no diretório e executá-lo. criar o modal que será o componente filho que irá abrir toda vez que o botão de nível superior for clicado.
+Para começar, vamos começar criando um app com o framework Nextjs. Rode no seu terminal o comando abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
 
 ```shell
 # crie o projeto
@@ -51,7 +49,7 @@ const Home: NextPage = () => {
 export default Home
 ```
 
-Agora vamos criar o `Modal` . Crie um diretório **`components`** na raiz do projeto e dentro um diretório **`modal`** e crie um arquivo `index.tsx` dentro desse diretório. Dentro do componente modal adicione uma `label` e um `input` com a lógica de abrir o modal quando o estado for verdadeiro.
+Agora vamos criar o `Modal`. Crie um diretório **`components`** na raiz do projeto e dentro um diretório **`modal`** e crie um arquivo `index.tsx`. Dentro do componente modal adicione uma `label` e um `input` com a lógica de abrir o modal quando o estado for verdadeiro.
 
 ```tsx
 // components/modal/index.tsx
@@ -75,7 +73,7 @@ const Modal: React.FC = () => {
 export default Modal;
 ```
 
-Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um click. Esse evento precisar mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`. Mas antes, vamos adicionar um estilo para que o Modal fique visivel.
+Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um `click`. Esse evento precisa mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`. Mas antes, vamos adicionar um estilo para que o Modal fique visivel.
 
 ```tsx
 import type { NextPage } from 'next'
@@ -119,7 +117,7 @@ import '../styles/modal.css'
 // ...
 ```
 
-Agora precisamos referenciar a fução do estado para componente superior. No modal precisamos receber a referência que será criada no componente superior, essa referência é obtida como segundo parâmetro, dessa forma, precisamos adicionar os types que iremos receber via parâmetro. Na linha 21 vamos exportar o componente como atributo da função `forwardRef`. Essa função torna possível repassar a referência para outros componentes.
+Agora precisamos referenciar a fução do estado para componente superior. No modal precisamos receber a referência que será criada no componente superior, essa referência é obtida como segundo parâmetro, então precisamos adicionar os types que iremos receber via parâmetro. Na linha 21 vamos exportar o componente como atributo da função `forwardRef`. Essa função torna possível repassar a referência para outros componentes.
 
 ```tsx
 import { ForwardRefRenderFunction, ReactNode, useState } from "react";
@@ -179,7 +177,6 @@ const Home: NextPage = () => {
 }
 
 // ...
-
 ```
 
 Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando estiver aberto. Essa é uma forma simples de repassar um estado quando não podemos ou não queremos criar a lógica de uma funcionalidade em um componente que não precisa saber dessa funcionalidade.  Não é muito comum, nem muito usual utilizar desse modo, mas quando necessário pode ser útil :)
@@ -198,8 +195,6 @@ Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando
   );
 // ...
 ```
-
-
 
 ### Referências
 
