@@ -2,7 +2,7 @@ backend:
   name: github
   repo: rwietter/rwietter.dev
   branch: master
-  site_domain: https://rwietter.netlify.app
+  site_domain: rwietter.netlify.app
 publish_mode: editorial_workflow
 media_folder: "static/assets/img"
 public_folder: "assets/img"
