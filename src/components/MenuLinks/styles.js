@@ -3,6 +3,7 @@ import styled from "styled-components"
 import media from "styled-media-query"
 
 export const MenuLinksWrapper = styled.div`
+font-family: var(--font-secondary);
   ${media.lessThan("large")`
 		display: none;
 	`}
@@ -23,6 +24,7 @@ export const MenuLinksItem = styled.li`
     position: relative;
     color: var(--active);
     transition: background 0.4s, color 0.4s ease;
+    font-weight: 400;
 
     &::after {
       content: "";
@@ -51,6 +53,7 @@ export const MenuLinksLink = styled(AniLink)`
   color: var(--texts);
   text-decoration: none;
   transition: color 0.5s;
+  font-family: var(--font-secondary);
 
   &:hover {
     color: var(--active);

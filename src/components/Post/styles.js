@@ -110,7 +110,7 @@ export const MainContent = styled.section`
     font-family: var(--font-secondary) !important;
     color: var(--postColor);
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.7;
     letter-spacing: 0.069rem;
     padding: 0 1.4rem;

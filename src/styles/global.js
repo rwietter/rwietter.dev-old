@@ -3,7 +3,7 @@ import media from 'styled-media-query';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;800&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300;400&display=swap');
 
 	body.dark {
     --borders: #1d2730;
@@ -98,6 +98,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    font-weight: 300;
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -129,7 +130,7 @@ const GlobalStyles = createGlobalStyle`
     background: var(--background);
     line-height: 1;
     font-size: 100%;
-    font-family: Inter;
+    font-family: var(--font-secondary);
   }
   img {
     display: block;
