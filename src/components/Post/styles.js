@@ -17,8 +17,8 @@ export const PostHeader = styled.header`
 
 export const PostContainer = styled.div`
   margin: auto;
-  max-width: 70rem;
-  padding: 2rem 5rem;
+  max-width: 80rem;
+  padding: 2rem 7rem;
   text-align: left;
 
   ${media.lessThan("large")`
@@ -29,25 +29,25 @@ export const PostContainer = styled.div`
 `
 
 export const PostTitle = styled.h1`
-  font-size: 4rem;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
   font-weight: 700;
   padding: 0 1.4rem;
   margin: 1rem auto;
+  font-family: var(--font-primary);
 
   ${media.lessThan("large")`
-    font-size: 2.8rem;
     line-height: 1.1;
     padding: 0 1rem;
   `}
 `
 
 export const PostDescription = styled.h2`
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: 300;
   padding: 0 1.4rem;
+  font-family: var(--font-primary);
 
   ${media.lessThan("large")`
-    font-size: 1.6rem;
     line-height: 1.3;
     padding: 0 1rem;
   `}
@@ -56,7 +56,7 @@ export const PostDescription = styled.h2`
 export const PostDate = styled.p`
   font-size: 1.1rem;
   font-weight: 400;
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   padding: 0 1.4rem;
   display: flex;
   align-items: center;
@@ -90,6 +90,7 @@ export const MainContent = styled.section`
   margin: auto;
   padding: 2rem;
   text-align: justify;
+  font-family: var(--font-secondary);
 
   ${media.lessThan("large")`
     padding: 2rem 0;
@@ -106,7 +107,7 @@ export const MainContent = styled.section`
   .tags,
   iframe,
   .button-post {
-    font-family: var(--font-secondary);
+    font-family: var(--font-secondary) !important;
     color: var(--postColor);
     font-size: 1.2rem;
     font-weight: 400;
@@ -154,8 +155,15 @@ export const MainContent = styled.section`
     background-color: #afb8c133;
     border-radius: 6px;
     font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-      Liberation Mono, monospace;
+      Liberation Mono, monospace !important;
     font-size: 14px;
+  }
+  p em {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+  p strong {
+    font-weight: bold;
   }
   img {
     display: block;
@@ -175,10 +183,11 @@ export const MainContent = styled.section`
     border-left: 0.3rem solid var(--highlight);
     padding: 1rem 0.6rem;
     margin: 2.125rem 1rem;
-    background: var(--blockquote_color);
+    background: var(--blockquote_bg);
+    transition: background .3s, color .3s ease;
 
     p {
-      color: #d1d1d1;
+      color: var(--blockquote_color);
       font-family: var(--font-tertiary);
       font-style: italic;
     }
@@ -258,15 +267,17 @@ export const MainContent = styled.section`
     margin: 1rem auto !important;
   }
   a {
-    color: var(--postColor);
+    color: var(--highlight);
     text-decoration: none;
     transition: all 0.35s ease;
-    text-decoration: underline wavy var(--text_underline) 1px;
+    text-decoration: underline dotted var(--highlight) 3px;
+    cursor: pointer;
     svg {
       color: var(--postColor);
     }
     &:hover {
-      color: var(--highlight);
+      color: var(--text_underline);
+      text-decoration: underline dotted var(--text_underline) 3px;
     }
   }
 `

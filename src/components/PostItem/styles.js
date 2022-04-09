@@ -1,5 +1,6 @@
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const PostItemLink = styled(AniLink)`
   display: flex;
@@ -33,11 +34,15 @@ export const PostItemWrapper = styled.section`
   align-items: center;
 
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 2rem 10rem;
 
   body#grid & {
     border-bottom: 0;
   }
+
+  ${media.lessThan("large")`
+      padding: 2rem 0;
+  `}
 `
 
 export const PostItemTag = styled.p`
@@ -65,7 +70,7 @@ export const PostItemTag = styled.p`
 export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
-
+  font-family: var(--font-primary);
   margin-left: 1.5rem;
 	
   body#grid & {
@@ -76,11 +81,13 @@ export const PostItemInfo = styled.div`
 export const PostItemDate = styled.time`
   font-size: 0.9rem;
   line-height: 1.15;
+  font-family: var(--font-primary);
 `
 
 export const PostItemTitle = styled.h2`
-  font-size: 1.8rem;
   font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-family: var(--font-primary);
 
   margin: .7rem 0 0.5rem;
 
@@ -91,7 +98,8 @@ export const PostItemTitle = styled.h2`
 `
 
 export const PostItemDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 300;
+  font-family: var(--font-primary);
   line-height: 1.2;
 `

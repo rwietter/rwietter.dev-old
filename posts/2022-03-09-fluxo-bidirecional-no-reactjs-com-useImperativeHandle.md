@@ -7,15 +7,15 @@ date: 2022-04-07 09:36:05
 ---
 Olá 👋
 
-Hoje vamos falar de fluxos unidirecional e bidirecional no React. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (top-down), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componente child pelo componente owner, ou seja, de forma bidirecional.
+Hoje vamos falar de fluxos unidirecional e bidirecional no React. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (*top-down*), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componente child pelo componente owner, ou seja, de forma bidirecional.
 
-![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](assets/img/bidirecional.png)
+![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](https://raw.githubusercontent.com/rwietter/rwietter.dev/master/static/bidirecional.png)
 
 Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos expor uma propriedade para o componente *owner* por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para o componente *owner*.
 
 Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
 
-> `O useImperativeHandle` personaliza o valor da instância que está exposta aos componentes *owner* ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs.
+> O hook `useImperativeHandle` personaliza o valor da instância que está exposta aos componentes *owner* ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs.
 
 E sobre o hook `useRef`:
 

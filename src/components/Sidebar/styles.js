@@ -12,7 +12,7 @@ export const SidebarWrapper = styled.aside`
   position: fixed;
   padding: 1rem .5rem;
   text-align: center;
-  width: 7rem;
+  width: 15rem;
   transition: background 0.35s;
 
   ${media.lessThan("large")`

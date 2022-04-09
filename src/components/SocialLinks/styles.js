@@ -14,9 +14,10 @@ const animate = keyframes`
 `
 
 export const SocialLinksWrapper = styled.nav`
-  margin-top: 2rem;
-  align-self: flex-start;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 	${media.lessThan('large')`
 		display: none;
@@ -28,15 +29,17 @@ export const SocialLinksList = styled.ul`
   align-items: center;
   justify-content: flex-start;
   list-style: none;
-  grid-template-columns: 1fr 1fr;
-  height: 100%;
-
-  li {
-    padding: 1rem 0.5rem;
-  }
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 1rem;
+  margin-top: ${props => (props["data-display"] === "flex" ? "1rem" : "0")}
 `
 
-export const SocialLinksItem = styled.li``
+export const SocialLinksItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 
 export const SocialLinksLink = styled.a`

@@ -20,13 +20,13 @@ const GlobalStyles = createGlobalStyle`
     --terminal: rgb(30, 30, 55);
     --icons: rgba(41, 160, 218, 1);
     --frosted: #4D3E64;
-    --text_underline: #4D3E64;
+    --text_underline: #F95E97;
     --circles_animation: rgba(251, 55, 127, 0.21);
-    --blockquote_color: rgb(30, 30, 55);
+    --blockquote_bg: rgb(30, 30, 55);
+    --blockquote_color: #d1d1d1;
 
-    --font-primary: 'Montserrat';
+    --font-primary: 'Inter';
     --font-secondary: 'Open Sans';
-    --font-tertiary: 'Open Sans';
   }
 
   body.light {
@@ -44,13 +44,13 @@ const GlobalStyles = createGlobalStyle`
     --terminal: rgb(30, 30, 55);
     --icons: rgba(41, 160, 218, 1);
     --frosted: #4D3E64;
-    --text_underline: rgb(182, 122, 246);
+    --text_underline: #F95E97;
     --circles_animation: rgba(251, 55, 127, 0.21);
-    --blockquote_color: rgb(30, 30, 55);
+    --blockquote_bg: #f2f3f7;
+    --blockquote_color: #4D3E64;
 
-    --font-primary: 'Montserrat';
+    --font-primary: 'Inter';
     --font-secondary: 'Open Sans';
-    --font-tertiary: 'Open Sans';
   }
 
 
