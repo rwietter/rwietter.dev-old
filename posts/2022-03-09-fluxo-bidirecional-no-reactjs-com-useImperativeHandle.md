@@ -261,7 +261,7 @@ const Home: NextPage = () => {
 
 Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando estiver aberto. 
 
-```tsx{6}
+```tsx{8}
 // ...
   return (
     <>
