@@ -7,11 +7,11 @@ date: 2022-04-07 09:36:05
 ---
 Olá 👋
 
-Hoje vamos falar de fluxos unidirecional e bidirecional no React. O React normalmente tem o fluxo unidirecional e repassa os dados de cima para baixo (*top-down*), mas por vezes precisamos acessar determinada função ou realizar uma mudança em um componente child pelo componente owner, ou seja, de forma bidirecional.
+Hoje vamos falar de fluxos unidirecional e bidirecional no React. Por padrão, no React, os dados fluem de uma maneira: do *owner* para o *child*, ou seja, no fluxo unidirecional , mas por vezes precisamos acessar determinada função ou realizar uma mudança de estado em um componente *child* pelo componente *owner*, isto é, de forma bidirecional, expondo um dado do componente inferior para o superior.
 
 ![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](https://raw.githubusercontent.com/rwietter/rwietter.dev/master/static/bidirecional.png)
 
-Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a Context API ou outro gerenciador de estado global para compartilhamento de estado.  Além disso, podemos expor uma propriedade para o componente *owner* por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para o componente *owner*.
+Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a *Context API* ou outro gerenciador de estado global para compartilhamento de estado.  Mas, também podemos expor uma uma função ou estado para o componente *owner* por meio do hook `useImperativeHandle` e o hook `useRef` passando a referência da propriedade para o componente *owner*. Vamos ver como isso funciona.
 
 Conforme a documentação do React diz sobre o hook `useImperativeHandle`:
 
@@ -21,9 +21,9 @@ E sobre o hook `useRef`:
 
 > `useRef` retorna um objeto `ref` mutável, no qual a propriedade `current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
-Ou seja, o hook `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente e o hook  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa utilizando essa referência. É claro que é melhor se puder compartilhar ou elevar o estado do componente, mas nem sempre isso é possível.
+Ou seja, o hook `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente, já o hook  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa utilizando essa referência.
 
-Vamos começar criando um app com o framework Nextjs. Rode no seu terminal os comandos abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
+Vamos começar criando um *app* com o *framework* *Nextjs*. Rode no seu terminal os comandos abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
 
 ```shell
 # crie o projeto
@@ -78,7 +78,7 @@ const Modal: React.FC = () => {
 export default Modal;
 ```
 
-Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um `click`. Esse evento precisa mudar o estado do modal para `true` para que seja exibido em tela. Dessa forma, precisamos referenciar a função que troca o estado do modal para o componente `Home`. Mas antes, vamos adicionar um estilo para que o Modal fique visivel.
+Vamos importar o `Modal` no componente `Home` e adicionar um botão logo abaixo que vai disparar um evento ao receber um `click`. Esse evento precisa mudar o estado do modal para `true` para que seja exibido em tela. Logo, precisamos referenciar a função que troca o estado do modal para o componente `Home`.
 
 ```tsx
 import type { NextPage } from 'next'
@@ -98,7 +98,7 @@ const Home: NextPage = () => {
 export default Home
 ```
 
-Crie um arquivo de estilo `styles/modal.css` e vamos adicionar um estilo ao modal. Esse estilo irá posicionar o modal sobre os outros elemento, centralizar seus componentes e adicionar uma largura e altura.
+Antes vamos adicionar um estilo ao modal. Crie um arquivo de estilo `styles/modal.css`, esse estilo irá posicionar o modal sobre os outros elemento, centralizar seus componentes e adicionar uma largura e altura.
 
 ```css
 @keyframes zoomIn {
@@ -177,7 +177,7 @@ main {
 }
 ```
 
-Agora basta importar o arquivo `modal.css`em `pages/_app.tsx`. Dessa forma o estilo já será aplicado ao nosso Modal.
+Agora basta importar o arquivo `modal.css`em `pages/_app.tsx`. Dessa forma o estilo já será aplicado ao nosso componente `Modal`.
 
 ```dart
 // pages/_app.tsx
@@ -187,10 +187,16 @@ import '../styles/modal.css'
 // ...
 ```
 
-Agora precisamos referenciar a fução do estado para componente superior. No modal precisamos receber a referência que será criada no componente superior, essa referência é obtida como segundo parâmetro, então precisamos adicionar os *types* que iremos receber via parâmetro. Por fim, vamos exportar o componente como atributo da função `forwardRef`. Essa função torna possível repassar a referência para o componente *owner*.
+Agora precisamos referenciar a fução que vai alterar o estado para componente *owner*. No modal precisamos receber a referência que será criada no componente *owner*, essa referência é obtida como segundo parâmetro, tabém vamos *tipar* nossos parâmetros com *generic types*.  Também, vamos expor a função `handleOpenModal` com o hook `useImperativeHandle`, como primeiro argumento ele recebe a referência criada no *owner*, como segundo argumento uma callback que irá retornar um objeto com nossa função que queremos acessar pela referência criada no *owner*. Por fim, vamos exportar o componente como argumento da função `forwardRef`, essa função irá encaminhar a referência ao componente *owner*.
 
 ```tsx
-import { ForwardRefRenderFunction, ReactNode, useState } from "react";
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  ReactNode,
+  useImperativeHandle,
+  useState,
+} from "react";
 
 interface ModalProps {
   children?: ReactNode;
@@ -200,6 +206,10 @@ const Modal: ForwardRefRenderFunction<ModalRef, ModalProps> = (props, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen((state) => !state);
+  
+  useImperativeHandle(ref, () => ({
+    handleOpenModal,
+  }));
 
   return (
     /* ... */
@@ -230,7 +240,7 @@ const Home: NextPage = () => {
 export default Home
 ```
 
-Ainda no componente Home, só precisamos criar uma função que irá receber a referência da função do Modal e repassar para a propriedade onClick. Feito isso, já iremos ter o modal funcional. 
+Ainda no componente `Home`, só precisamos criar uma função que irá receber a referência da função do `Modal` e repassar para a propriedade `onClick`. Feito isso, já iremos ter o modal funcional. 
 
 ```tsx
 // ...
@@ -249,7 +259,7 @@ const Home: NextPage = () => {
 // ...
 ```
 
-Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando estiver aberto. Essa é uma forma simples de repassar um estado quando não podemos ou não queremos criar a lógica de uma funcionalidade em um componente que não precisa saber dessa funcionalidade.  Não é muito comum, nem muito usual utilizar desse modo, mas quando necessário pode ser útil :)
+Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando estiver aberto. 
 
 ```tsx
 // ...
@@ -265,6 +275,12 @@ Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando
   );
 // ...
 ```
+
+### Conclusão
+
+Essa é uma forma simples de alterar um estado quando não podemos ou não queremos criar a lógica de uma funcionalidade em um componente que não precisa saber dessa funcionalidade ou não queremos utilizar um gerenciador de estado.  Não é muito comum, nem recomedavel utilizar código imperativo, mas quando necessário pode ser muito útil :)
+
+Até mais ⚛ 👋
 
 - - -
 
