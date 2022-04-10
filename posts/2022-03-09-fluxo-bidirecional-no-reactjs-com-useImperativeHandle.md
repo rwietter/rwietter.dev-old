@@ -1,15 +1,17 @@
 ---
-title: Fluxo bidirecional no reactjs com useImperativeHandle
-description: como expor uma função de um componente child para o componente owner no reactjs
+title: Fluxo bidirecional no React com o hook useImperativeHandle
+description: como expor uma função de um componente child para o componente owner no React
 category: react
 background: "#F46819"
-date: 2022-04-07 09:36:05
+date: 2022-04-10 12:00:23
 ---
+### Introdução
+
 Olá 👋
 
-Hoje vamos falar de fluxos unidirecional e bidirecional no React. Por padrão, no React, os dados fluem de uma maneira: do *owner* para o *child*, ou seja, no fluxo unidirecional , mas por vezes precisamos acessar determinada função ou realizar uma mudança de estado em um componente *child* pelo componente *owner*, isto é, de forma bidirecional, expondo um dado do componente inferior para o superior.
+Hoje vamos falar de fluxos unidirecional e bidirecional no React. Por padrão, no React, os dados fluem de uma maneira: do *owner* para o *child*, ou seja, no fluxo unidirecional, mas por vezes precisamos acessar determinada função ou realizar uma mudança de estado em um componente *child* pelo componente *owner*, isto é, de forma bidirecional, expondo um dado do componente inferior para o superior.
 
-![fluxo bidirecional de dados dos componentes react. Componente owner passando uma propriedade ref para o componente child](https://raw.githubusercontent.com/rwietter/rwietter.dev/master/static/bidirecional.png)
+![fluxo bidirecional de dados dos componentes React. Componente owner passando uma propriedade ref para o componente child](https://raw.githubusercontent.com/rwietter/rwietter.dev/master/static/bidirecional.png)
 
 Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a *Context API* ou outro gerenciador de estado global para compartilhamento de estado.  Mas, também podemos expor uma uma função ou estado para o componente *owner* por meio do *hook* `useImperativeHandle` e o *hook* `useRef` passando a referência da propriedade para o componente *owner*. Vamos ver como isso funciona.
 
@@ -22,6 +24,10 @@ E sobre o *hook* `useRef`:
 > `useRef` retorna um objeto `ref` mutável, no qual a propriedade `current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
 Ou seja, o *hook* `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente, já o *hook*  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa utilizando essa referência.
+
+
+
+### Vamos ao exemplo prático
 
 Vamos começar criando um *app* com o *framework* *Nextjs*. Rode no seu terminal os comandos abaixo para criar o projeto, em seguida entre no diretório e execute a aplicação.
 
@@ -66,7 +72,7 @@ const Modal: React.FC = () => {
   return (
     <>
       {isModalOpen && (
-        <div>
+        <div className="modal">
           <label htmlFor="nome">Qual o seu nome ?</label>
           <input name="nome" />
         </div>
@@ -261,13 +267,14 @@ const Home: NextPage = () => {
 
 Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando estiver aberto. 
 
-```tsx{8}
+```tsx
 // ...
   return (
     <>
       {isModalOpen && (
         <div className="modal">
-          {/* ... */}
+          <label htmlFor="nome">Qual o seu nome ?</label>
+          <input name="nome" />
           <button onClick={handleOpenModal}>Close</button>
         </div>
       )}
