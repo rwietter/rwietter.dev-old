@@ -22,7 +22,6 @@ const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { nextPost, previousPost } = pageContext
 
-  console.log(post.html)
   useEffect(() => {
     const doc = document.querySelector("#article")
     doc.innerHTML = post.html

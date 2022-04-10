@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@deckdeckgo/highlight-code": "^4.3.0",
+    "@loadable/component": "^5.15.2",
     "@stitches/react": "^1.2.7",
     "algoliasearch": "^4.8.5",
     "dotenv": "^8.2.0",

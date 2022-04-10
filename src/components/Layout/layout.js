@@ -1,12 +1,18 @@
-import { TransitionPortal } from 'gatsby-plugin-transition-link';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { TransitionPortal } from "gatsby-plugin-transition-link"
+import PropTypes from "prop-types"
+import React from "react"
+import loadable from "@loadable/component"
 
-import GlobalStyles from '../../styles/global';
-import MenuBar from '../MenuBar';
-import Sidebar from '../Sidebar/';
-import * as S from './styles';
-import './styles.css';
+import GlobalStyles from "../../styles/global"
+import * as S from "./styles"
+import "./styles.css"
+
+const MenuBar = loadable(() => import("../MenuBar"), {
+  fallback: <div>Loading...</div>,
+})
+const Sidebar = loadable(() => import("../Sidebar/"), {
+  fallback: <div>Loading...</div>,
+})
 
 const Layout = ({ children }) => {
   return (
@@ -15,9 +21,7 @@ const Layout = ({ children }) => {
       <TransitionPortal level="top">
         <Sidebar />
       </TransitionPortal>
-      <S.LayoutMain>
-        {children}
-      </S.LayoutMain>
+      <S.LayoutMain>{children}</S.LayoutMain>
       <TransitionPortal level="top">
         <MenuBar />
       </TransitionPortal>
