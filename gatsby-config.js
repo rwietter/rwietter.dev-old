@@ -104,10 +104,10 @@ module.exports = {
         name: `rwietter blog`,
         short_name: `rwietter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `rgb(25, 25, 49)`,
+        theme_color: `rgb(25, 25, 49)`,
         display: `minimal-ui`,
-        icon: `static/assets/seo/tumb.jpg`, // This path is relative to the root of the site.
+        icon: `static/assets/seo/seo.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-offline`,
