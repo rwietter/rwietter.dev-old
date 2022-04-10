@@ -269,7 +269,7 @@ Para finalizar, vamos adicionar um botão de `close` no modal para fechar quando
         <div className="modal">
           {/* ... */}
           <button onClick={handleOpenModal}>Close</button>
-        </div>;
+        </div>
       )}
     </>
   );
