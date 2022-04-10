@@ -10,6 +10,7 @@ import "./styles.css"
 const MenuBar = loadable(() => import("../MenuBar"), {
   fallback: <div>Loading...</div>,
 })
+
 const Sidebar = loadable(() => import("../Sidebar/"), {
   fallback: <div>Loading...</div>,
 })

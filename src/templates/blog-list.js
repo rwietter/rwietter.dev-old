@@ -1,11 +1,15 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import loadable from "@loadable/component"
 
 import Layout from '../components/Layout/layout';
 import { ListWapper } from '../components/ListWrapper/styles';
 import { Pagination } from '../components/Pagination';
-import PostItem from '../components/PostItem';
 import SEO from '../components/seo';
+
+const PostItem = loadable(() => import("../components/PostItem"), {
+  fallback: <div>Loading...</div>,
+})
 
 const BlogList = props => {
   const posts = props.data.allMarkdownRemark.edges
