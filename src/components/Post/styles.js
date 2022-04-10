@@ -9,7 +9,7 @@ export const PostHeader = styled.header`
   padding: 2rem;
 
   ${media.lessThan("large")`
-    padding: 3rem 0 0;
+    padding: 0;
     max-width: 100%;
     margin: 0;
   `}
@@ -22,7 +22,7 @@ export const PostContainer = styled.div`
   text-align: left;
 
   ${media.lessThan("large")`
-    padding: 2rem 0;
+    padding: 1rem 0 2rem 0;
     width: 100%;
     max-width: 100%;
   `}
@@ -88,12 +88,12 @@ export const PostSeparator = styled.span`
 
 export const MainContent = styled.section`
   margin: auto;
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: justify;
   font-family: var(--font-secondary);
 
   ${media.lessThan("large")`
-    padding: 2rem 0;
+    padding: 1rem 0;
     max-width: 100%;
   `}
 
@@ -270,14 +270,13 @@ export const MainContent = styled.section`
     color: var(--highlight);
     text-decoration: none;
     transition: all 0.35s ease;
-    text-decoration: underline dotted var(--highlight) 3px;
     cursor: pointer;
     svg {
       color: var(--postColor);
     }
     &:hover {
       color: var(--text_underline);
-      text-decoration: underline dotted var(--text_underline) 3px;
+      text-decoration: underline var(--text_underline) 3px;
     }
   }
 `

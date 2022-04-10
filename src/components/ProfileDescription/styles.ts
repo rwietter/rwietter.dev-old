@@ -10,9 +10,6 @@ export const PeofileDescriptiom = styled(`div`, {
     transition: "color 0.2s ease",
     fontFamily: "$primary",
   },
-  strong: {
-    fontWeight: 'bold !important',
-  },
 
   '@large': {
     display: 'flex',

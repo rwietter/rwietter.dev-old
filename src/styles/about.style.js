@@ -1,20 +1,27 @@
 import styled from 'styled-components';
+import media from 'styled-media-query'
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 9rem);
   margin: 0 auto;
   width: 100%;
+  max-width: 70rem;
+  padding-left: 7rem;
   position: relative;
   overflow-x: hidden;
+
+  ${media.lessThan('large')`
+    padding-left: 0;
+  `}
 
   &::before {
     position: absolute;
     content: "─ ABOUT ─";
     color: var(--frosted);
-    opacity: 0.09;
+    opacity: 0.4;
     font-family: var(--font-secondary);
     font-weight: 900;
     font-size: clamp(40px, 10vw, 10rem);
@@ -29,7 +36,7 @@ const Author = styled.section`
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
-  max-width: 50%;
+  padding: 0 2rem;
 `
 
 const Title = styled.h1`

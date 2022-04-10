@@ -12,7 +12,7 @@ const AboutPage = () => {
       <Page.layout.Container>
         <Page.layout.Author>
           <Page.with.Title>
-            Hi, I'm Maurício Witter
+            Olá, Meu nome é Maurício Witter
             <Page.with.Point>.</Page.with.Point>
           </Page.with.Title>
           <Page.with.Username>@rwietter</Page.with.Username>

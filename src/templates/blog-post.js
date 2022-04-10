@@ -14,6 +14,7 @@ import {
   PostTitle,
 } from "../components/Post/styles"
 import SEO from "../components/seo"
+import { GoBackCSS, ArrowRightCSS } from "../components/GoBack"
 
 // TODO: remove comments
 // import { Comments } from '../components/Comments';
@@ -35,6 +36,10 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       />
       <PostContainer>
         <PostHeader role="banner">
+          <GoBackCSS to="/">
+            <ArrowRightCSS />
+            Voltar
+          </GoBackCSS>
           <PostDate>
             <DateRange className="date-icon" size={14} />
             <span>{post.frontmatter.date}</span> |
@@ -45,10 +50,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           <PostDescription>{post.frontmatter.description}</PostDescription>
         </PostHeader>
         <MainContent>
-          <article
-            key={post.id}
-            id="article"
-          />
+          <article key={post.id} id="article" />
         </MainContent>
       </PostContainer>
       <NextOrPreviousPost nextPost={nextPost} previousPost={previousPost} />
