@@ -5,6 +5,7 @@ import loadable from "@loadable/component"
 import Layout from '../components/Layout/layout';
 import { ListWapper } from '../components/ListWrapper/styles';
 import { Pagination } from '../components/Pagination';
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import SEO from '../components/seo';
 
 const PostItem = loadable(() => import("../components/PostItem"), {
@@ -23,8 +24,15 @@ const BlogList = props => {
   return (
     <Layout>
       <ListWapper>
-        {posts?.map(post => (
-          <PostItem
+        {posts?.map(post => {
+          trackCustomEvent({
+          category: "Open post",
+          action: "Click",
+          label: `${post.node.frontmatter.description}`,
+          value: post.node.frontmatter.title,
+        })
+          return (
+            <PostItem
             key={post.node.id}
             slug={post.node.fields.slug}
             background={post.node.frontmatter.background}
@@ -34,7 +42,8 @@ const BlogList = props => {
             title={post.node.frontmatter.title}
             description={post.node.frontmatter.description}
           />
-        ))}
+          )
+        })}
       </ListWapper>
       <SEO title="Home" description="this home contains all the blog posts" />
       <Pagination
