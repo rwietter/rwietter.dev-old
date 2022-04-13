@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types"
+import React from "react"
 
 export default function HTML(props) {
   return (
@@ -9,9 +9,21 @@ export default function HTML(props) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Language" content="pt-br, en-us" />
+        <meta name="author" content="Maurício Witter" />
+        <meta
+          name="description"
+          content="Meu nome é Maurício e nesse espaço, escrevo conteúdos sobre dev e tech."
+        />
+        <meta property="og:title" content="Maurício Witter Blog" />
+        <meta
+          property="og:description"
+          content="Meu nome é Maurício e nesse espaço, escrevo conteúdos sobre dev e tech."
+        />
+        <meta property="og:image" content="../static/tumb.jpg" />
+        <meta property="og:url" content="https://rwietter.xyz/" />
         {props.headComponents}
       </head>
-      <body {...props.bodyAttributes} className="dark">
+      <body {...props.bodyAttributes} className="dark" id="class-theme">
         <script
           dangerouslySetInnerHTML={{
             __html: `

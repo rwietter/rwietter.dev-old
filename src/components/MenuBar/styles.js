@@ -56,6 +56,7 @@ export const MenuBarItem = styled.span`
   position: relative;
   width: 3.75rem;
   transition: color 0.35s ease;
+  stroke: var(--texts);
 
   &:hover {
     color: var(--highlight);
@@ -63,8 +64,12 @@ export const MenuBarItem = styled.span`
   }
 
   &.dark {
-    color: var(--highlight);
+    stroke: var(--highlight);
     transition: color 0.35s ease;
+  }
+
+  &.purple {
+    stroke: var(--text_underline);
   }
 
   ${media.greaterThan("large")`

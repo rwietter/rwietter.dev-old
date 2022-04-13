@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;800&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300;400&display=swap');
 
-	body.dark {
+	body.purple {
     --borders: #1d2730;
     --texts: rgb(250,250,250);
     --postColor: #fff;
@@ -24,7 +24,31 @@ const GlobalStyles = createGlobalStyle`
     --circles_animation: rgba(251, 55, 127, 0.21);
     --blockquote_bg: rgb(30, 30, 55);
     --blockquote_color: #d1d1d1;
-
+    --theme-pallet-icon: '#ffca80';
+    --font-primary: 'Inter';
+    --font-secondary: 'Open Sans';
+  }
+  
+  body.dark {
+    --borders: #1d2730;
+    --texts: rgb(250,250,250);
+    --postColor: #fff;
+    --highlight: rgb(251, 55, 127);
+    --mediumBackground: #151720;
+    --background: #13141c;
+    --white: #fff;
+    --black: #111;
+    --active: rgb(251, 55, 127);
+    --separator: rgb(100, 100, 100);
+    --inverse: #efefef;
+    --terminal: #151720;
+    --icons: rgba(41, 160, 218, 1);
+    --frosted: #4D3E64;
+    --text_underline: #F95E97;
+    --circles_animation: rgba(251, 55, 127, 0.21);
+    --blockquote_bg: #151720;
+    --blockquote_color: #d1d1d1;
+    --theme-pallet-icon: '#ff9580';
     --font-primary: 'Inter';
     --font-secondary: 'Open Sans';
   }
@@ -48,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
     --circles_animation: rgba(251, 55, 127, 0.21);
     --blockquote_bg: #f2f3f7;
     --blockquote_color: #4D3E64;
-
+    --theme-pallet-icon: '#9580ff';
     --font-primary: 'Inter';
     --font-secondary: 'Open Sans';
   }

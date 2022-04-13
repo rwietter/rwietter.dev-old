@@ -11,7 +11,7 @@ require("ts-node").register({
 module.exports = {
   siteMetadata: {
     title: `rwietter`,
-    description: `Lorem ipsum`,
+    description: `Dev e estudante de Sistemas de Informação na UFSM. Nesse espaço, escrevo conteúdos sobre dev & tech.`,
     position: `Front-end`,
     author: `@rwietter`,
     siteUrl: `https://rwietter.dev/`,
@@ -109,7 +109,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `rwietter blog`,
+        name: `rwietter.xyz`,
         short_name: `rwietter`,
         start_url: `/`,
         background_color: `rgb(25, 25, 49)`,

@@ -46,7 +46,7 @@ export const PostItemWrapper = styled.section`
 `
 
 export const PostItemTag = styled.p`
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 
@@ -65,13 +65,21 @@ export const PostItemTag = styled.p`
   background-size: 100% 100%;
   object-fit: cover;
   transition: color 0.35s, background 0.35s ease;
+
+  @media (min-width: 650px) {
+    display: flex;
+  }
 `
 
 export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   font-family: var(--font-primary);
-  margin-left: 1.5rem;
+  padding: 0 0.5rem;
+
+  @media (min-width: 650px){
+    margin-left: 1rem;
+  }
 	
   body#grid & {
     padding-top: 2rem;
