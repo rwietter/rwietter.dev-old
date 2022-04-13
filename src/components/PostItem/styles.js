@@ -75,10 +75,11 @@ export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   font-family: var(--font-primary);
-  padding: 0 0.5rem;
+  padding: 0 1.2rem;
 
   @media (min-width: 650px){
     margin-left: 1rem;
+    padding: 0 0.5rem;
   }
 	
   body#grid & {
