@@ -1,4 +1,4 @@
-// import { LightBulb as Light } from "@styled-icons/entypo/LightBulb"
+import { LightBulb as Light } from "@styled-icons/entypo/LightBulb"
 // import { List } from "@styled-icons/entypo/List"
 import React, { useEffect, useState } from "react"
 import {
@@ -31,11 +31,18 @@ const MenuBar = () => {
   //   }
   // }, [])
 
-  const handleChangeTheme = () => {
-    const preferredTheme = themes[themeIndex] === theme ? themes[themeIndex + 1] : themes[themeIndex]
+  const handleChangeThemePallet = () => {
+    const themeFromalletThemes =
+      themes[themeIndex] === theme ? themes[themeIndex + 1] : themes[themeIndex]
     setThemeIndex(index => (index += 1))
-    window.__setPreferredTheme(preferredTheme)
+    window.__setPreferredTheme(themeFromalletThemes)
     if (themeIndex === 2) setThemeIndex(0)
+  }
+
+  const handleDarkMode = () => {
+    const isDark = theme === "dark"
+    const preferredTheme = isDark ? "light" : "dark"
+    window.__setPreferredTheme(preferredTheme)
   }
 
   // const handleChangeDisplay = () => {
@@ -66,7 +73,7 @@ const MenuBar = () => {
           bg="var(--background)"
         >
           <S.MenuBarItem>
-            <Home />
+            <Home size={20} />
           </S.MenuBarItem>
         </S.MenuBarLink>
         <S.MenuBarLink
@@ -79,18 +86,26 @@ const MenuBar = () => {
           bg="var(--background)"
         >
           <S.MenuBarItem>
-            <Search />
+            <Search size={20} />
           </S.MenuBarItem>
         </S.MenuBarLink>
       </S.MenuBarGroup>
 
       <S.MenuBarGroup>
         <S.MenuBarItem
-          title="Change Theme"
-          onClick={handleChangeTheme}
+          title="Change Theme Pallet"
+          onClick={handleChangeThemePallet}
+          className={['pallet', theme]}
+        >
+          <ThemePalletIcon height={20} width={20} />
+        </S.MenuBarItem>
+
+        <S.MenuBarItem
+          title="Dark Mode"
+          onClick={handleDarkMode}
           className={theme}
         >
-          <ThemePalletIcon height={21} width={21} />
+          <Light size={15} strokeWidth="0.2" />
         </S.MenuBarItem>
         {/* <S.MenuBarItem
           title="Change Visualization"

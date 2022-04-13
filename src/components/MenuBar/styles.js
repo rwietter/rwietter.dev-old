@@ -1,6 +1,6 @@
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import styled from "styled-components"
+import media from "styled-media-query"
 
 export const ManuBarWrapper = styled.aside`
   display: flex;
@@ -43,7 +43,7 @@ export const MenuBarLink = styled(AniLink)`
   display: block;
   &.active span svg {
     color: var(--highlight);
-    transition: color .35s ease;
+    transition: color 0.35s ease;
   }
 `
 
@@ -56,20 +56,25 @@ export const MenuBarItem = styled.span`
   position: relative;
   width: 3.75rem;
   transition: color 0.35s ease;
-  stroke: var(--texts);
+
+  &.pallet svg {
+    stroke: var(--texts);
+    transition: color 0.35s ease;
+  }
+  
+  &.pallet svg:hover {
+    stroke: var(--highlight);
+  }
+
+  &.light svg {
+    color: var(--texts);
+    stroke: var(--texts);
+  }
 
   &:hover {
     color: var(--highlight);
-    transition: color 0.35s ease;
-  }
-
-  &.dark {
     stroke: var(--highlight);
     transition: color 0.35s ease;
-  }
-
-  &.purple {
-    stroke: var(--text_underline);
   }
 
   ${media.greaterThan("large")`
