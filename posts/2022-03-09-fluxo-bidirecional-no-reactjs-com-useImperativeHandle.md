@@ -13,7 +13,7 @@ Hoje vamos falar de fluxos unidirecional e bidirecional no React. Por padrão, n
 
 ![fluxo bidirecional de dados dos componentes React. Componente owner passando uma propriedade ref para o componente child](https://raw.githubusercontent.com/rwietter/rwietter.dev/master/static/bidirecional.png)
 
-Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a *Context API* ou outro gerenciador de estado global para compartilhamento de estado.  Mas, também podemos expor uma uma função ou estado para o componente *owner* por meio do *hook* `useImperativeHandle` e o *hook* `useRef` passando a referência da propriedade para o componente *owner*. Vamos ver como isso funciona.
+Para resolver isso, podemos elevar o estado (*Lifting State Up*) de um componente *child* para um componente *owner* que irá conter a lógica do componente *child*. Outra forma é utilizar a *Context API* ou outro gerenciador de estado global para compartilhamento de estado.  Mas, também podemos expor uma função ou estado para o componente *owner* por meio do *hook* `useImperativeHandle` e o *hook* `useRef` passando a referência da propriedade para o componente *owner*. Vamos ver como isso funciona.
 
 Conforme a documentação do React diz sobre o *hook* `useImperativeHandle`:
 
@@ -24,8 +24,6 @@ E sobre o *hook* `useRef`:
 > `useRef` retorna um objeto `ref` mutável, no qual a propriedade `current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
 Ou seja, o *hook* `useRef` cria um objeto mutável que recebe um valor inicial no qual podemos mudar durante o ciclo de vida do componente, já o *hook*  `useImperativeHandle` vai nos ajudar a expor nossa propriedade para o componente superior de forma imperativa utilizando essa referência.
-
-
 
 ### Vamos ao exemplo prático
 
