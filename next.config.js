@@ -1,6 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+// @type {import('next').NextConfig}
+const withImages = require('next-images')
 
-module.exports = nextConfig
+const nextConfig = withImages({
+  reactStrictMode: true,
+  env: {
+    REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL,
+  },
+  images: { domains: ["localhost"] },
+});
+
+module.exports = nextConfig;
