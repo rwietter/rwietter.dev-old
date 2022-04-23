@@ -28,9 +28,7 @@ function LastPosts() {
         </p>
       </LastPostContainerDescription>
       {posts.map((post: any) => {
-        const imageUrl = process.env.NODE_ENV !== 'development'
-          ? post.attributes.image.data.attributes.url
-          : process.env.REACT_APP_BACKEND_URL
+        const imageUrl = process.env.REACT_APP_BACKEND_URL
               + post.attributes.image.data.attributes.url;
         return (
           <Link
