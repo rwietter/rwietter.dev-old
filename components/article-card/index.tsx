@@ -12,6 +12,7 @@ const Card = ({ article }: any) => (
           layout="responsive"
           width={100}
           height={50}
+          loading="lazy"
         />
       </div>
       <div className="uk-card-body">
