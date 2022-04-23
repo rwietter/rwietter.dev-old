@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { Articles } from "../../components/articles";
-import Query from "../../components/query";
-import CATEGORY_ARTICLES_QUERY from "../../queries/category/articles";
+import { Articles } from "../../../components/articles";
+import Query from "../../../components/query";
+import CATEGORY_ARTICLES_QUERY from "../../../queries/category/articles";
 
 const Category = () => {
   const router = useRouter();

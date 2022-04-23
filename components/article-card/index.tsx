@@ -7,9 +7,10 @@ const Card = ({ article }: any) => {
     process.env.NODE_ENV !== "development"
       ? article.attributes.image.data.attributes.url
       : process.env.REACT_APP_BACKEND_URL +
-        article.attributes.image.data.attributes.url;
+      article.attributes.image.data.attributes.url;
+  
   return (
-    <Link href={`/article/${article.attributes.slug}`} passHref>
+    <Link href={`/blog/article/${article.attributes.slug}`} passHref>
       <div className="uk-card uk-card-muted uk-cursor-pointer">
         <div className="uk-card-media-top">
           <Image src={imageUrl} alt={article.attributes.image.url} layout='responsive' width={100} height={50} />

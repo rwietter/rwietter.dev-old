@@ -1,9 +1,8 @@
 /* eslint-disable react/no-children-prop */
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useQuery } from "@apollo/react-hooks";
-import ARTICLE_QUERY from "../../queries/article/article";
+import ARTICLE_QUERY from "../../../queries/article/article";
 import Image from "next/image";
 
 const ArticleItem = () => {

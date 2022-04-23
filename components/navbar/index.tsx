@@ -26,8 +26,7 @@ const Navbar = () => {
                       return (
                         <li key={category.attributes.slug}>
                           <Link
-                            href={`/category/${category.attributes.slug}`}
-                            // className="uk-link-reset"
+                            href={`/blog/category/${category.attributes.slug}`}
                           >
                             {category.attributes.name}
                           </Link>
