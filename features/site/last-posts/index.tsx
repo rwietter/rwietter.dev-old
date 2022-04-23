@@ -13,11 +13,7 @@ import {
 } from './styles';
 
 function LastPosts() {
-  const { data } = useQuery(LAST_ARTICLES_QUERY, {
-    fetchPolicy: {
-      content: 'application/json',
-    },
-  });
+  const { data } = useQuery(LAST_ARTICLES_QUERY);
   const posts = data?.articles?.data;
 
   if (!posts) return null;
