@@ -1,5 +1,6 @@
-import React from "react";
-import { Card } from "../article-card";
+/* eslint-disable no-unsafe-optional-chaining */
+import React from 'react';
+import { Card } from '../article-card';
 
 const Articles = ({ articles }: any) => {
   const leftArticlesCount = Math.ceil(articles?.length / 5);
@@ -12,25 +13,21 @@ const Articles = ({ articles }: any) => {
     <div>
       <div className="uk-child-width-1-2" data-uk-grid>
         <div>
-          {leftArticles?.map((article: any) => {
-            return (
+          {leftArticles?.map((article: any) => (
+            <Card
+              article={article}
+              key={`article__${article.attributes.slug}`}
+            />
+          ))}
+        </div>
+        <div>
+          <div className="uk-child-width-1-2@m uk-grid-match" data-uk-grid>
+            {rightArticles?.map((article: any) => (
               <Card
                 article={article}
                 key={`article__${article.attributes.slug}`}
               />
-            );
-          })}
-        </div>
-        <div>
-          <div className="uk-child-width-1-2@m uk-grid-match" data-uk-grid>
-            {rightArticles?.map((article: any) => {
-              return (
-                <Card
-                  article={article}
-                  key={`article__${article.attributes.slug}`}
-                />
-              );
-            })}
+            ))}
           </div>
         </div>
       </div>
@@ -38,4 +35,4 @@ const Articles = ({ articles }: any) => {
   );
 };
 
-export { Articles } ;
+export { Articles };

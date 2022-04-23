@@ -1,9 +1,9 @@
 /* eslint-disable react/no-children-prop */
-import { useRouter } from "next/router";
-import ReactMarkdown from "react-markdown";
-import { useQuery } from "@apollo/react-hooks";
-import ARTICLE_QUERY from "../../../queries/article/article";
-import Image from "next/image";
+import { useRouter } from 'next/router';
+import ReactMarkdown from 'react-markdown';
+import { useQuery } from '@apollo/react-hooks';
+import Image from 'next/image';
+import ARTICLE_QUERY from '../../../queries/article/article';
 
 const ArticleItem = () => {
   const router = useRouter() as unknown as {
@@ -18,12 +18,10 @@ const ArticleItem = () => {
 
   const [articles] = data.articles.data;
 
-
-  const imageUrl =
-    process.env.NODE_ENV !== "development"
-      ? articles.attributes.image.data.attributes.url
-      : process.env.REACT_APP_BACKEND_URL +
-        articles.attributes.image.data.attributes.url;
+  const imageUrl = process.env.NODE_ENV !== 'development'
+    ? articles.attributes.image.data.attributes.url
+    : process.env.REACT_APP_BACKEND_URL
+        + articles.attributes.image.data.attributes.url;
 
   return (
     <div>

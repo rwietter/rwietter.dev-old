@@ -14,5 +14,5 @@ export const globalStyles = globalCss({
   body: {
     background: 'var(--colors-background)',
     fontFamily: 'Inter, sans-serif',
-  }
+  },
 });

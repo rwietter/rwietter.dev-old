@@ -21,5 +21,6 @@ rules:
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "import/prefer-default-export": "off",
     "react/function-component-definition": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": "off"
   }
