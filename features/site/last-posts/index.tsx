@@ -34,7 +34,7 @@ function LastPosts() {
               + post.attributes.image.data.attributes.url;
         return (
           <Link
-            key={post.slug}
+            key={post.attributes.slug}
             href={`/blog/article/${post.attributes.slug}`}
             passHref
           >
