@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 const ARTICLES_QUERY = gql`
   query Articles {
@@ -28,14 +28,15 @@ const ARTICLES_QUERY = gql`
   }
 `;
 
-
 const LAST_ARTICLES_QUERY = gql`
   query Articles {
-    articles(pagination: { limit: 4 }, sort: "createdAt") {
+    articles(pagination: { limit: 3 }, sort: "updatedAt:desc") {
       data {
         attributes {
           slug
           title
+          description
+          updatedAt
           category {
             data {
               attributes {
@@ -55,6 +56,6 @@ const LAST_ARTICLES_QUERY = gql`
       }
     }
   }
-`
+`;
 
 export { ARTICLES_QUERY, LAST_ARTICLES_QUERY };

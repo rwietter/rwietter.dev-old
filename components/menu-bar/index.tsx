@@ -1,12 +1,8 @@
-// import { List } from "@styled-icons/entypo/List"
 import React from 'react';
-import {
-  AiOutlineSearch,
-  AiOutlineArrowUp,
-  AiFillHome,
-  AiOutlineFontColors,
-  AiFillAlert,
-} from 'react-icons/ai';
+import { AiFillHome, AiFillRead } from 'react-icons/ai';
+import { SiArchlinux } from 'react-icons/si';
+import { TiLightbulb } from 'react-icons/ti';
+import { RiArrowUpCircleFill } from 'react-icons/ri';
 
 import * as S from './styles';
 
@@ -28,36 +24,29 @@ const MenuBar = () => {
             <AiFillHome size={20} />
           </S.MenuBarItem>
         </S.MenuBarLink>
-        <S.MenuBarLink href="/search">
+        <S.MenuBarLink href="/blog">
           <S.MenuBarItem>
-            <AiOutlineSearch size={20} />
+            <AiFillRead size={20} />
           </S.MenuBarItem>
         </S.MenuBarLink>
       </S.MenuBarGroup>
 
       <S.MenuBarGroup>
-        <S.MenuBarItem
-          title="Change Theme Pallet"
-          onClick={() => {}}
-        >
-          <AiOutlineFontColors
-            height={20}
-            width={20}
-          />
-        </S.MenuBarItem>
+        <S.MenuBarLink href="arch-linux">
+          <S.MenuBarItem>
+            <SiArchlinux size={20} />
+          </S.MenuBarItem>
+        </S.MenuBarLink>
 
         <S.MenuBarItem
           title="Dark Mode"
           onClick={() => {}}
           className="theme"
         >
-          <AiFillAlert
-            size={15}
-            strokeWidth="0.2"
-          />
+          <TiLightbulb size={20} />
         </S.MenuBarItem>
         <S.MenuBarItem title="Go top">
-          <AiOutlineArrowUp onClick={handleToTop} />
+          <RiArrowUpCircleFill onClick={handleToTop} size={20} />
         </S.MenuBarItem>
       </S.MenuBarGroup>
     </S.ManuBarWrapper>

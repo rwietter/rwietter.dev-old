@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { Container, CurrentlyInformations, Playing, PlayingArtist, PlayingImage } from "./styles";
-import Image from "next/image";
-import { SoundProps } from "./interface";
-import { SpotifyIcon } from "components/icons/Spotify";
-import { IoIosTimer } from "react-icons/io";
-import { RiSunCloudyLine } from "react-icons/ri";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { SpotifyIcon } from 'components/icons/Spotify';
+import { IoIosTimer } from 'react-icons/io';
+import { RiSunCloudyLine } from 'react-icons/ri';
+import { SoundProps } from './interface';
+import {
+  Container, CurrentlyInformations, Playing, PlayingArtist, PlayingImage,
+} from './styles';
 
 const fetchCurrentlyPlaying = async (): Promise<SoundProps> => {
   try {
     const response = await fetch(
-      "https://api.spotify.com/v1/me/player/currently-playing",
+      'https://api.spotify.com/v1/me/player/currently-playing',
       {
         headers: {
           Authorization: `Bearer ${process.env.SPOTIFY_OAUTH_TOKEN}`,
         },
-      }
+      },
     );
     const json = await response.json();
     return json;
   } catch (error: any) {
-    console.log(error);
     return Promise.reject(error);
   }
 };
@@ -36,8 +37,16 @@ const AuthorContent: React.FC = () => {
       {sound && (
         <>
           <CurrentlyInformations>
-            <p><IoIosTimer size={18} /> 23rd April 2022 • 1:47:16 AM</p>
-          <p><RiSunCloudyLine size={18} /> Its currently 10 °C (broken clouds) in London.</p>
+            <p>
+              <IoIosTimer size={18} />
+              {' '}
+              23rd April 2022 • 1:47:16 AM
+            </p>
+            <p>
+              <RiSunCloudyLine size={18} />
+              {' '}
+              Its currently 10 °C (broken clouds) in London.
+            </p>
           </CurrentlyInformations>
           <Playing>
             {sound.is_playing ? (
@@ -55,7 +64,11 @@ const AuthorContent: React.FC = () => {
                 <PlayingArtist>
                   <SpotifyIcon />
                   <p>
-                    {sound?.item?.artists[0].name} - <strong>{sound?.item?.name}</strong>
+                    {sound?.item?.artists[0].name}
+                    {' '}
+                    -
+                    {' '}
+                    <strong>{sound?.item?.name}</strong>
                   </p>
                 </PlayingArtist>
               </>

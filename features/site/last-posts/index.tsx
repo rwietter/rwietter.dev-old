@@ -3,11 +3,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { LAST_ARTICLES_QUERY } from 'queries/articles/articles';
 import {
-  LastPostContainer, LastPostContainerDescription, LastPostContainerImage, LastPostContainerLink,
+  LastPostContainer,
+  LastPostContainerContent,
+  LastPostContainerContentCategory,
+  LastPostContainerDescription,
+  LastPostContainerImage,
+  LastPostContainerLink,
+  LastPostToBlog,
 } from './styles';
 
 function LastPosts() {
-  const { data } = useQuery(LAST_ARTICLES_QUERY);
+  const { data } = useQuery(LAST_ARTICLES_QUERY, {
+    fetchPolicy: {
+      content: 'application/json',
+    },
+  });
   const posts = data?.articles?.data;
 
   if (!posts) return null;
@@ -38,21 +48,30 @@ function LastPosts() {
                   src={imageUrl}
                   alt={post.attributes.image.url}
                   layout="fixed"
-                  width={90}
-                  height={90}
+                  width={80}
+                  height={80}
                 />
               </LastPostContainerImage>
-              <div>
-                <p id="category">
-                  {post.attributes.category.data.attributes.name}
-                </p>
-                <p id="title">{post.attributes.title}</p>
-              </div>
+              <LastPostContainerContent>
+                <div>
+                  <h4 className="title">
+                    {post.attributes.title}
+                  </h4>
+                  <p className="description">{post.attributes.description}</p>
+                </div>
+                <div>
+                  <LastPostContainerContentCategory
+                    category={post.attributes.category.data.attributes.name}
+                  >
+                    {post.attributes.category.data.attributes.name}
+                  </LastPostContainerContentCategory>
+                </div>
+              </LastPostContainerContent>
             </LastPostContainer>
           </Link>
         );
       })}
-      <Link href="/blog">Ir ao Blog</Link>
+      <LastPostToBlog><Link href="/blog">Ir ao Blog</Link></LastPostToBlog>
     </LastPostContainerLink>
   );
 }

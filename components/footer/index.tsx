@@ -1,11 +1,19 @@
-import React from 'react';
+import { SOCIAL_LINKS } from '../../data/social-links';
 
 import { Footer } from './styles';
 
-const FooterComponent: React.FC = () => (
+const FooterComponent = () => (
   <Footer>
-    <div>{new Date().getFullYear()}</div>
-    <div>social</div>
+    <p className="powered">
+      Developed by Maurício Witter ©
+      {'  '}
+      {new Date().getFullYear()}
+    </p>
+    <nav>
+      {SOCIAL_LINKS.map((link) => (
+        <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{ link.icon }</a>
+      ))}
+    </nav>
   </Footer>
 );
 

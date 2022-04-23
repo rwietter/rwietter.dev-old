@@ -99,7 +99,7 @@ const { theme: lightTheme } = createStitches({
   theme: {
     colors: {
       background: '#FFFFFF',
-      mediumBackground: '#E1E1E4',
+      mediumBackground: 'rgb(242, 243, 247)',
       gradient:
         'linear-gradient(90deg, #ffbe0b, #fb5607, #ff006e, #8257e5, #3a86ff );',
       highlight145: 'linear-gradient(145deg, #8257e5, #c1b);',

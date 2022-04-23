@@ -1,9 +1,48 @@
 import { styled } from '../../styles/theme';
 
 export const Footer = styled('footer', {
-  padding: '$3 $2 $10 $8',
+  padding: '$3 $8 $10 $8',
+  margin: '$5 0',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'color 0.3s ease',
+
+  '.powered': {
+    fontWeight: 300,
+    fontSize: '$2',
+  },
+
+  nav: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: '$3',
+
+    '@bp2': {
+      marginTop: '0',
+    },
+  },
+
+  'nav a': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: '$2',
+    color: '$primary',
+
+    '&:hover': {
+      color: '$secondary',
+    },
+  },
+
+  '@bp2': {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 
   '@bp5': {
-    padding: '$5 $8 $2 $8',
+    padding: '$5 $8 $6 $8',
   },
 });
