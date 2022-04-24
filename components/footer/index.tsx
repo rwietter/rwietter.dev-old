@@ -5,7 +5,7 @@ import { Footer } from './styles';
 const FooterComponent = () => (
   <Footer>
     <p className="powered">
-      Developed by Maurício Witter ©
+      Maurício Witter ©
       {'  '}
       {new Date().getFullYear()}
     </p>

@@ -11,7 +11,12 @@ export const Footer = styled('footer', {
 
   '.powered': {
     fontWeight: 300,
-    fontSize: '$2',
+    fontSize: '$1',
+    textAlign: 'center',
+
+    '@bp3': {
+      fontSize: '$2',
+    },
   },
 
   nav: {

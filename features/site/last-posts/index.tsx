@@ -23,8 +23,8 @@ function LastPosts() {
       <LastPostContainerDescription>
         <h2>My Last Posts</h2>
         <p>
-          Here I share what I learned on a daily basis
-          in software development,check out my latest articles
+          Here I share what I learned daily in software development,
+          check out my latest articles.
         </p>
       </LastPostContainerDescription>
       {posts.map((post: any) => (
@@ -42,13 +42,13 @@ function LastPosts() {
                 width={80}
                 height={80}
                 loading="lazy"
+                blurDataURL="https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_1280.jpg"
+                placeholder="blur"
               />
             </LastPostContainerImage>
             <LastPostContainerContent>
               <div>
-                <h4 className="title">
-                  {post.attributes.title}
-                </h4>
+                <h4 className="title">{post.attributes.title}</h4>
                 <p className="description">{post.attributes.description}</p>
               </div>
               <div>
@@ -62,7 +62,9 @@ function LastPosts() {
           </LastPostContainer>
         </Link>
       ))}
-      <LastPostToBlog><Link href="/blog">Ir ao Blog</Link></LastPostToBlog>
+      <LastPostToBlog>
+        <Link href="/blog">Ir ao Blog</Link>
+      </LastPostToBlog>
     </LastPostContainerLink>
   );
 }

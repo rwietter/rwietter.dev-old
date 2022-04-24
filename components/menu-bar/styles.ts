@@ -8,7 +8,7 @@ export const ManuBarWrapper = styled('aside', {
   justifyContent: 'space-between',
   bottom: '0',
   height: '3rem',
-  padding: '0',
+  padding: '0 0.3rem',
   position: 'fixed',
   width: '100%',
   transition: 'background 0.35s ease',

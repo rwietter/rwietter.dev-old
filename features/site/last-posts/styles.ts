@@ -52,10 +52,15 @@ export const LastPostContainer = styled('section', {
 
 export const LastPostContainerImage = styled('div', {
   paddingRight: '$2',
-  img: {
+  display: 'none',
+  'span img': {
     borderRadius: '50%',
     width: 40,
     height: 40,
+    position: 'relative !important',
+  },
+  '@bp3': {
+    display: 'flex',
   },
 });
 
@@ -85,16 +90,25 @@ export const LastPostContainerContent = styled('div', {
   flexDirection: 'column',
   justifyContent: 'space-between',
   '.title': {
-    fontSize: '$3',
+    fontSize: '$2',
   },
   '.description': {
-    fontSize: '$2',
+    fontSize: '$1',
     paddingTop: '$1',
     fontWeight: 300,
     maxWidth: '34rem',
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+  },
+
+  '@bp3': {
+    '.title': {
+      fontSize: '$3',
+    },
+    '.description': {
+      fontSize: '$2',
+    },
   },
 });
 
