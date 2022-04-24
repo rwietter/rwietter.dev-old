@@ -35,7 +35,7 @@ const AuthorContent: React.FC = () => {
   const date = new Date();
   const [sound, setSound] = useState<SoundProps>([] as unknown as SoundProps);
   const [weather, setWeather] = useState<WeatherProps>({} as WeatherProps);
-  const [currentDate, setCurrentDate] = useState(`${date}`);
+  const [currentDate, setCurrentDate] = useState(getDate(date));
 
   useEffect(() => {
     fetchCurrentlyPlaying().then((data) => setSound(data));
@@ -43,8 +43,6 @@ const AuthorContent: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentDate(getDate(date));
-
     const interval = setInterval(() => {
       const updateDate = new Date();
       setCurrentDate(getDate(updateDate));

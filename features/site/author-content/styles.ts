@@ -52,6 +52,8 @@ export const CurrentlyInformations = styled('div', {
   p: {
     display: 'flex',
     alignItems: 'center',
+    flexWrap: 'wrap',
+    lineHeight: 1.5,
     svg: {
       marginRight: '$1',
     },
