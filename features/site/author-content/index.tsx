@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { SpotifyIcon } from 'components/icons/Spotify';
 import { IoIosTimer } from 'react-icons/io';
 import { RiSunCloudyLine } from 'react-icons/ri';
-import { format } from 'date-fns';
-import axios from 'axios';
 import { SoundProps } from './interface';
+import { getDate } from '../../../utils/get-date';
+import { fetchCurrentConditions, WeatherProps } from '../../../pages/api/weatcher';
 import {
   Container,
   CurrentlyInformations,
@@ -25,48 +25,10 @@ const fetchCurrentlyPlaying = async (): Promise<SoundProps> => {
         },
       },
     );
-    const json = await response.json();
-    return json;
+    return await response.json();
   } catch (error: any) {
     return Promise.reject(error);
   }
-};
-
-interface WeatherProps {
-  HasPrecipitation: boolean;
-  WeatherIcon: number;
-  WeatherText: string;
-  Temperature: {
-    Imperial: {
-      Unit: 'F';
-      UnitType: number;
-      Value: number;
-    };
-    Metric: {
-      Unit: 'C';
-      UnitType: number;
-      Value: number;
-    };
-  };
-}
-
-const fetchCurrentConditions = async () => {
-  try {
-    const { data } = await axios(
-      `http://dataservice.accuweather.com/currentconditions/v1/${process.env.ACCUWEATHER_CITY_ID}?apikey=${process.env.ACCUWEATHER_API_KEY}`,
-    );
-    return data;
-  } catch (error) {
-    return Promise.reject(error);
-  }
-};
-
-const getDate = (date: Date) => {
-  const formatDate = `${format(date, "dd'rd' MMMM yyyy")} • ${format(
-    date,
-    'HH:mm:ss a',
-  )}`;
-  return formatDate;
 };
 
 const AuthorContent: React.FC = () => {
@@ -81,11 +43,8 @@ const AuthorContent: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const hasDate = getDate(date);
+    setCurrentDate(getDate(date));
 
-    if (hasDate) {
-      setCurrentDate(hasDate);
-    }
     const interval = setInterval(() => {
       const updateDate = new Date();
       setCurrentDate(getDate(updateDate));
