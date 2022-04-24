@@ -1,6 +1,7 @@
 import Header from 'components/header';
 import { MenuBar } from 'components/menu-bar';
 import React, { FC as withTypes, ReactNode } from 'react';
+import FadeIn from 'react-fade-in';
 import { ContainerCSS, LayoutCSS } from './styles';
 
 interface ContainerProps {
@@ -10,7 +11,9 @@ interface ContainerProps {
 const Layout: withTypes<ContainerProps> = ({ children }) => (
   <ContainerCSS>
     <Header />
-    <LayoutCSS>{children}</LayoutCSS>
+    <LayoutCSS>
+      <FadeIn>{children}</FadeIn>
+    </LayoutCSS>
     <MenuBar />
   </ContainerCSS>
 );

@@ -10,7 +10,7 @@ const nextConfig = withImages({
     ACCUWEATHER_API_KEY: process.env.ACCUWEATHER_API_KEY,
     ACCUWEATHER_CITY_ID: process.env.ACCUWEATHER_CITY_ID,
   },
-  images: { domains: ['localhost', 'i.scdn.co', 'rwietter-strapi-cms.herokuapp.com'] },
+  images: { domains: ['localhost', 'i.scdn.co', 'rwietter-strapi-cms.herokuapp.com', 'res.cloudinary.com'] },
 });
 
 module.exports = nextConfig;

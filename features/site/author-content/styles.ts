@@ -19,7 +19,7 @@ export const Playing = styled('div', {
   alignItems: 'center',
   background: '$mediumBackground',
   padding: '$1',
-  minHeight: '5rem',
+  minHeight: '6rem',
   paddingRight: '$2',
   width: 'max-content',
   marginTop: '$1',
@@ -31,7 +31,7 @@ export const Playing = styled('div', {
     cursor: 'pointer',
   },
   '@bp3': {
-    minWidth: '350px',
+    minWidth: '380px',
   },
 });
 
@@ -40,10 +40,24 @@ export const PlayingImage = styled('div', {});
 export const PlayingArtist = styled('div', {
   paddingLeft: '$2',
   display: 'flex',
-  paddingTop: '$1',
+  flexWrap: 'wrap',
+  flexDirection: 'column',
+  paddingTop: '$2',
   alignSelf: 'flex-start',
+  maxWidth: '10rem',
+  wordWrap: 'break-word',
+  wordBreak: 'break-word',
   p: {
-    paddingLeft: '$1',
+    paddingTop: '$1',
+  },
+
+  '@bp1': {
+    p: {
+      paddingTop: '0',
+      paddingLeft: '$1',
+    },
+    flexDirection: 'row',
+    maxWidth: '100%',
   },
 });
 

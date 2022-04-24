@@ -93,7 +93,20 @@ const AuthorContent: React.FC = () => {
                 </PlayingArtist>
               </>
             ) : (
-              <p>Not listening to anything</p>
+              <>
+                <PlayingImage>
+                  <Image
+                    src="https://res.cloudinary.com/ddwnioveu/image/upload/v1650762898/photo-1535925191244-17536ca4f8b6_qz4ykc.jpg"
+                    alt="artist of the playing sound"
+                    width={65}
+                    height={70}
+                  />
+                </PlayingImage>
+                <PlayingArtist>
+                  <SpotifyIcon />
+                  <p>Not listening <span>to anything</span></p>
+                </PlayingArtist>
+              </>
             )}
           </Playing>
         </>
