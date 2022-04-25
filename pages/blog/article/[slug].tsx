@@ -1,4 +1,3 @@
-/* eslint-disable react/no-children-prop */
 import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown';
 import { useQuery } from '@apollo/react-hooks';
@@ -18,16 +17,11 @@ const ArticleItem = () => {
 
   const [articles] = data.articles.data;
 
-  // const imageUrl = process.env.NODE_ENV !== 'development'
-  //   ? articles.attributes.image.data.attributes.url
-  //   : process.env.REACT_APP_BACKEND_URL
-  //       + articles.attributes.image.data.attributes.url;
-  console.log(`${process.env.REACT_APP_BACKEND_URL}${articles.attributes.image.data.attributes.url}`);
   return (
     <div>
       <div>
         <Image
-          src={`${process.env.REACT_APP_BACKEND_URL}${articles.attributes.image.data.attributes.url}`}
+          src={articles.attributes.image.data.attributes.url}
           layout="responsive"
           width={100}
           height={50}

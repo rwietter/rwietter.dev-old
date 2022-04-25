@@ -7,7 +7,7 @@ const Card = ({ article }: any) => (
     <div className="uk-card uk-card-muted uk-cursor-pointer">
       <div className="uk-card-media-top">
         <Image
-          src={`${process.env.REACT_APP_BACKEND_URL}${article.attributes.image.data.attributes.url}`}
+          src={article.attributes.image.data.attributes.url}
           alt={article.attributes.image.url}
           layout="responsive"
           width={100}

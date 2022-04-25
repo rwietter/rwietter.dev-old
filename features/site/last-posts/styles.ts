@@ -46,7 +46,6 @@ export const LastPostContainer = styled('section', {
   },
   '&:hover': {
     transform: 'translateX(0.5rem)',
-    boxShadow: '-10px 5px 15px -3px #527',
   },
 });
 
