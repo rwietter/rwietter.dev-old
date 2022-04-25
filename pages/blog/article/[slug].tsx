@@ -18,16 +18,16 @@ const ArticleItem = () => {
 
   const [articles] = data.articles.data;
 
-  const imageUrl = process.env.NODE_ENV !== 'development'
-    ? articles.attributes.image.data.attributes.url
-    : process.env.REACT_APP_BACKEND_URL
-        + articles.attributes.image.data.attributes.url;
-
+  // const imageUrl = process.env.NODE_ENV !== 'development'
+  //   ? articles.attributes.image.data.attributes.url
+  //   : process.env.REACT_APP_BACKEND_URL
+  //       + articles.attributes.image.data.attributes.url;
+  console.log(`${process.env.REACT_APP_BACKEND_URL}${articles.attributes.image.data.attributes.url}`);
   return (
     <div>
       <div>
         <Image
-          src={imageUrl}
+          src={`${process.env.REACT_APP_BACKEND_URL}${articles.attributes.image.data.attributes.url}`}
           layout="responsive"
           width={100}
           height={50}

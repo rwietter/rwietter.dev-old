@@ -30,9 +30,8 @@ function LastPosts() {
       {posts.map((post: any) => {
         const imageUrl = process.env.NODE_ENV !== 'development'
           ? post.attributes.image.data.attributes.url
-          : process.env.REACT_APP_BACKEND_URL
-          + post.attributes.image.data.attributes.url;
-        console.log(imageUrl);
+          : process.env.REACT_APP_BACKEND_URL + post.attributes.image.data.attributes.url;
+        console.log(post.attributes.image.data.attributes.url);
         return (
           <Link
             key={post.attributes.slug}
@@ -41,6 +40,16 @@ function LastPosts() {
           >
             <LastPostContainer>
               <LastPostContainerImage>
+                <Image
+                  src={post.attributes.image.data.attributes.url}
+                  alt={post.attributes.image.url}
+                  layout="fixed"
+                  width={80}
+                  height={80}
+                  loading="lazy"
+                  blurDataURL="https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_1280.jpg"
+                  placeholder="blur"
+                />
                 <Image
                   src={imageUrl}
                   alt={post.attributes.image.url}
