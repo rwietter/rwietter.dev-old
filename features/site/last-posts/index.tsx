@@ -28,8 +28,11 @@ function LastPosts() {
         </p>
       </LastPostContainerDescription>
       {posts.map((post: any) => {
-        console.log(post.attributes.image.data.attributes.url);
-        console.log(`${process.env.REACT_APP_BACKEND_URL}${post.attributes.image.data.attributes.url}`);
+        const imageUrl = process.env.NODE_ENV !== 'development'
+          ? post.attributes.image.data.attributes.url
+          : process.env.REACT_APP_BACKEND_URL
+          + post.attributes.image.data.attributes.url;
+        console.log(imageUrl);
         return (
           <Link
             key={post.attributes.slug}
@@ -39,7 +42,7 @@ function LastPosts() {
             <LastPostContainer>
               <LastPostContainerImage>
                 <Image
-                  src={`${process.env.REACT_APP_BACKEND_URL}${post.attributes.image.data.attributes.url}`}
+                  src={imageUrl}
                   alt={post.attributes.image.url}
                   layout="fixed"
                   width={80}
