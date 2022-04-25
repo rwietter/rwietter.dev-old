@@ -27,41 +27,45 @@ function LastPosts() {
           check out my latest articles.
         </p>
       </LastPostContainerDescription>
-      {posts.map((post: any) => (
-        <Link
-          key={post.attributes.slug}
-          href={`/blog/article/${post.attributes.slug}`}
-          passHref
-        >
-          <LastPostContainer>
-            <LastPostContainerImage>
-              <Image
-                src={`${process.env.REACT_APP_BACKEND_URL}${post.attributes.image.data.attributes.url}`}
-                alt={post.attributes.image.url}
-                layout="fixed"
-                width={80}
-                height={80}
-                loading="lazy"
-                blurDataURL="https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_1280.jpg"
-                placeholder="blur"
-              />
-            </LastPostContainerImage>
-            <LastPostContainerContent>
-              <div>
-                <h4 className="title">{post.attributes.title}</h4>
-                <p className="description">{post.attributes.description}</p>
-              </div>
-              <div>
-                <LastPostContainerContentCategory
-                  category={post.attributes.category.data.attributes.name}
-                >
-                  {post.attributes.category.data.attributes.name}
-                </LastPostContainerContentCategory>
-              </div>
-            </LastPostContainerContent>
-          </LastPostContainer>
-        </Link>
-      ))}
+      {posts.map((post: any) => {
+        console.log(post.attributes.image.data.attributes.url);
+        console.log(`${process.env.REACT_APP_BACKEND_URL}${post.attributes.image.data.attributes.url}`);
+        return (
+          <Link
+            key={post.attributes.slug}
+            href={`/blog/article/${post.attributes.slug}`}
+            passHref
+          >
+            <LastPostContainer>
+              <LastPostContainerImage>
+                <Image
+                  src={`${process.env.REACT_APP_BACKEND_URL}${post.attributes.image.data.attributes.url}`}
+                  alt={post.attributes.image.url}
+                  layout="fixed"
+                  width={80}
+                  height={80}
+                  loading="lazy"
+                  blurDataURL="https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_1280.jpg"
+                  placeholder="blur"
+                />
+              </LastPostContainerImage>
+              <LastPostContainerContent>
+                <div>
+                  <h4 className="title">{post.attributes.title}</h4>
+                  <p className="description">{post.attributes.description}</p>
+                </div>
+                <div>
+                  <LastPostContainerContentCategory
+                    category={post.attributes.category.data.attributes.name}
+                  >
+                    {post.attributes.category.data.attributes.name}
+                  </LastPostContainerContentCategory>
+                </div>
+              </LastPostContainerContent>
+            </LastPostContainer>
+          </Link>
+        );
+      })}
       <LastPostToBlog>
         <Link href="/blog">Ir ao Blog</Link>
       </LastPostToBlog>
