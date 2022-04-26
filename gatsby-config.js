@@ -123,5 +123,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify-cms`,
     },
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `rwietter.xyz`,
+      },
+    },
   ],
 }
