@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { styled } from '../../styles/theme';
+import { styled } from 'styles/theme';
 
 export const ManuBarWrapper = styled('aside', {
   display: 'flex',
@@ -11,7 +11,7 @@ export const ManuBarWrapper = styled('aside', {
   padding: '0 0.3rem',
   position: 'fixed',
   width: '100%',
-  transition: 'background 0.35s ease',
+  transition: '$transitonTheme',
 
   background: '$mediumBackground',
 

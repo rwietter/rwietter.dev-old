@@ -7,7 +7,8 @@ export const Footer = styled('footer', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  transition: 'color 0.3s ease',
+  color: '$gray50',
+  transition: '$transitonTheme',
 
   '.powered': {
     fontWeight: 300,
@@ -35,6 +36,7 @@ export const Footer = styled('footer', {
     justifyContent: 'center',
     marginLeft: '$2',
     color: '$primary',
+    transition: '$transitonTheme',
 
     '&:hover': {
       color: '$secondary',

@@ -63,7 +63,7 @@ function LastPosts() {
         </Link>
       ))}
       <LastPostToBlog>
-        <Link href="/blog">Ir ao Blog</Link>
+        <Link href="/blog">Go to Blog</Link>
       </LastPostToBlog>
     </LastPostContainerLink>
   );

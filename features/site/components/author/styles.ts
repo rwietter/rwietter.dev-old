@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { styled } from '../../../../../styles/theme';
+import { styled } from 'styles/theme';
 
 export const AuthorLink = styled(Link, {});
 
@@ -10,9 +10,11 @@ export const AuthorContainer = styled('div', {
   alignItems: 'center',
   flexDirection: 'row',
   cursor: 'pointer',
+  color: '$gray50',
+  transition: '$transitonTheme',
 
   '.author': {
-    fontSize: 'clamp(0.9rem, 3vw, 1rem)',
+    fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
     fontWeight: 500,
     paddingLeft: '$2',
 
@@ -23,7 +25,7 @@ export const AuthorContainer = styled('div', {
   },
 
   '.description': {
-    fontSize: 'clamp(0.5rem, 2vw, 0.8rem)',
+    fontSize: 'clamp(0.6rem, 2vw, 0.9rem)',
     fontWeight: 300,
     paddingTop: '$2',
     textAlign: 'center',

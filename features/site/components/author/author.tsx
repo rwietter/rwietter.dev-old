@@ -17,8 +17,8 @@ const Author: React.FC = () => {
         <AuthorImage
           src="https://res.cloudinary.com/ddwnioveu/image/upload/v1650924676/profile/photo_2022-03-21_15-43-27_qykura.jpg"
           layout="fixed"
-          width={offsetWidth < 720 ? 50 : 60}
-          height={offsetWidth < 720 ? 50 : 60}
+          width={offsetWidth < 1000 ? 40 : 55}
+          height={offsetWidth < 1000 ? 40 : 55}
           alt="image from author profile"
           loading="lazy"
           blurDataURL="https://res.cloudinary.com/ddwnioveu/image/upload/v1650924999/profile/author_image_s30zc6.jpg"

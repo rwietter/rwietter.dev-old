@@ -1,4 +1,4 @@
-import { styled } from '../../../styles/theme';
+import { styled } from 'styles/theme';
 
 export const LastPostContainerLink = styled('div', {
   width: '100%',
@@ -14,6 +14,8 @@ export const LastPostContainerLink = styled('div', {
 
 export const LastPostContainerDescription = styled('div', {
   width: '100%',
+  transition: '$transitonTheme',
+  color: '$gray50',
   h2: {
     fontSize: '$6',
     fontWeight: 900,
@@ -40,7 +42,7 @@ export const LastPostContainer = styled('section', {
   borderRadius: '4px',
   cursor: 'pointer',
   width: '100%',
-  transition: 'transform 0.7s, box-shadow 0.3s ease',
+  transition: '$transitonTheme, transform 0.7s, box-shadow 0.3s ease',
   '& + &': {
     marginTop: '$3',
   },
@@ -89,6 +91,8 @@ export const LastPostContainerContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  color: '$gray50',
+  transition: '$transitonTheme',
   '.title': {
     fontSize: '$3',
   },
@@ -119,6 +123,7 @@ export const LastPostContainerContentCategory = styled('div', {
   color: '$white',
   padding: '0.2rem 0.6rem',
   borderRadius: '4px',
+  transition: '$transitonTheme',
 
   variants: {
     category: {

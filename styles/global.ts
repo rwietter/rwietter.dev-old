@@ -14,5 +14,13 @@ export const globalStyles = globalCss({
   body: {
     background: 'var(--colors-background)',
     fontFamily: 'Inter, sans-serif',
+    transition: '$transitonTheme',
+  },
+  'h1, h2, h3': {
+    lineHeight: '1.1',
+  },
+  p: {
+    maxWidth: '60ch',
+    marginInlineEnd: 'auto',
   },
 });

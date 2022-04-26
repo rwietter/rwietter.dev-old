@@ -8,6 +8,7 @@ export const Container = styled('section', {
   color: '$gray50',
   maxWidth: '35rem',
   padding: '$3 $2',
+  transition: '$transitonTheme',
   '@bp3': {
     padding: '$5 $8 $2 $8',
   },
@@ -16,6 +17,7 @@ export const Container = styled('section', {
     fontSize: '$9',
     fontWeight: '900',
     color: '$gray50',
+    transition: '$transitonTheme',
   },
 
   p: {
@@ -24,6 +26,7 @@ export const Container = styled('section', {
     color: '$weakColorText',
     lineHeight: '1.5',
     paddingTop: '$2',
+    transition: '$transitonTheme',
 
     '@bp2': {
       fontSize: '$3',
@@ -37,7 +40,7 @@ export const Container = styled('section', {
       paddingTop: '$2',
       textDecoration: 'none',
       fontSize: '$2',
-      transition: 'color 0.3s ease',
+      transition: '$transitonTheme',
 
       '&:hover': {
         color: '$secondary',

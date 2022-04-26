@@ -4,9 +4,12 @@ import { SiArchlinux } from 'react-icons/si';
 import { TiLightbulb } from 'react-icons/ti';
 import { RiArrowUpCircleFill } from 'react-icons/ri';
 
+import { ThemeStore, useThemeStore } from 'store/switch-theme';
 import * as S from './styles';
 
 const MenuBar = () => {
+  const themeStore = useThemeStore() as ThemeStore;
+
   const handleToTop = () => {
     const position = document.body.scrollTop || document.documentElement.scrollTop;
     let scrollAnimation;
@@ -14,6 +17,12 @@ const MenuBar = () => {
       window.scrollBy(0, -Math.max(1, Math.floor(position / 10)));
       scrollAnimation = setTimeout(handleToTop, 30);
     } else clearTimeout(scrollAnimation);
+  };
+
+  const handleSwitchTheme = () => {
+    if (themeStore.setTheme) {
+      themeStore.setTheme(themeStore.theme === 'dark' ? 'light' : 'dark');
+    }
   };
 
   return (
@@ -40,7 +49,7 @@ const MenuBar = () => {
 
         <S.MenuBarItem
           title="Dark Mode"
-          onClick={() => {}}
+          onClick={handleSwitchTheme}
           className="theme"
         >
           <TiLightbulb size={20} />

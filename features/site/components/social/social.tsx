@@ -1,5 +1,5 @@
+import { SOCIAL_LINKS } from 'data/social-links';
 import { SocialContainer } from './styles';
-import { SOCIAL_LINKS } from '../../../../../data/social-links';
 
 const SidebarSocialIcons = () => (
   <SocialContainer>
