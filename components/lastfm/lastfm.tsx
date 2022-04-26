@@ -15,7 +15,9 @@ interface TrackProps {
   url: string;
 }
 
-const API_LAST_FM = '//ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=rwietter&api_key=bdb1737d21f69d03a12767f8b2a085b0&format=json&limit=1';
+const USERNAME = process.env.LASTFM_USERNAME!;
+const API_KEY = process.env.LASTFM_API_KEY!;
+const API_LAST_FM = `//ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${USERNAME}&api_key=${API_KEY}&format=json&limit=1`;
 const fetcher = () => fetch(API_LAST_FM).then((res) => res.json());
 
 export const LastFMTrack = () => {
