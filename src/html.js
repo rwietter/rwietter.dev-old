@@ -20,6 +20,7 @@ export default function HTML(props) {
           content="Meu nome é Maurício e nesse espaço, escrevo conteúdos sobre dev e tech."
         />
         <meta property="og:image" content="../static/tumb.jpg" />
+        <script defer data-domain="rwietter.xyz" src="https://plausible.io/js/plausible.js"></script>
         <meta property="og:url" content="https://rwietter.xyz/" />
         {props.headComponents}
       </head>

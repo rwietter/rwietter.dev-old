@@ -97,7 +97,7 @@ const MenuBar = () => {
           onClick={handleChangeThemePallet}
           className={['pallet', theme]}
         >
-          <ThemePalletIcon height={20} width={20} />
+          <ThemePalletIcon height={18} width={18} />
         </S.MenuBarItem>
 
         <S.MenuBarItem

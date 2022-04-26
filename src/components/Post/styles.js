@@ -18,11 +18,11 @@ export const PostHeader = styled.header`
 export const PostContainer = styled.div`
   margin: auto;
   max-width: 80rem;
-  padding: 2rem 7rem;
+  padding: 2rem 3rem 0 7rem;
   text-align: left;
 
   ${media.lessThan("large")`
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 0 0;
     width: 100%;
     max-width: 100%;
   `}

@@ -76,8 +76,8 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog post pages.
-    const posts = result.data.allMarkdownRemark.edges;
-    
+    const posts = result.data.allMarkdownRemark.edges
+
     posts.forEach(({ node, next, previous }) => {
       createPage({
         path: `${node.fields.slug}`,
