@@ -60,6 +60,7 @@ const AuthorContent: React.FC = () => {
               <IoIosTimer size={18} />
               {currentDate}
             </p>
+            {weather?.Temperature && (
             <p>
               <RiSunCloudyLine size={18} />
               <span>Its currently &nbsp;</span>
@@ -67,6 +68,7 @@ const AuthorContent: React.FC = () => {
               <span>{weather?.WeatherText && `( ${weather?.WeatherText} )`}&nbsp;</span>
               <span>in Constantina.</span>
             </p>
+            )}
           </CurrentlyInformations>
           <Playing>
             {sound.is_playing ? (
@@ -76,8 +78,8 @@ const AuthorContent: React.FC = () => {
                     <Image
                       src={sound.item.album.images[0].url}
                       alt="artist of the playing sound"
-                      width={60}
-                      height={60}
+                      width={90}
+                      height={90}
                     />
                   )}
                 </PlayingImage>
@@ -98,8 +100,8 @@ const AuthorContent: React.FC = () => {
                   <Image
                     src="https://res.cloudinary.com/ddwnioveu/image/upload/v1650762898/photo-1535925191244-17536ca4f8b6_qz4ykc.jpg"
                     alt="artist of the playing sound"
-                    width={65}
-                    height={70}
+                    width={90}
+                    height={90}
                   />
                 </PlayingImage>
                 <PlayingArtist>

@@ -23,7 +23,7 @@ export const LastPostContainerDescription = styled('div', {
   },
   p: {
     fontSize: '$2',
-    fontWeight: 300,
+    fontWeight: 400,
     lineHeight: '1.5',
     margin: '$1 0 $4 0',
 
@@ -56,6 +56,7 @@ export const LastPostContainerImage = styled('div', {
     borderRadius: '50%',
     width: 40,
     height: 40,
+    objectFit: 'cover',
     position: 'relative !important',
   },
   '@bp3': {
@@ -89,10 +90,10 @@ export const LastPostContainerContent = styled('div', {
   flexDirection: 'column',
   justifyContent: 'space-between',
   '.title': {
-    fontSize: '$2',
+    fontSize: '$3',
   },
   '.description': {
-    fontSize: '$1',
+    fontSize: '$2',
     paddingTop: '$1',
     fontWeight: 300,
     maxWidth: '34rem',

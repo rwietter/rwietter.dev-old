@@ -24,7 +24,7 @@ export const fetchCurrentConditions = async () => {
       `https://dataservice.accuweather.com/currentconditions/v1/${process.env.ACCUWEATHER_CITY_ID}?apikey=${process.env.ACCUWEATHER_API_KEY}`,
     );
     return data;
-  } catch (error) {
-    return Promise.reject(error);
+  } catch (error: any) {
+    return Promise.reject(error.message);
   }
 };

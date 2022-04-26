@@ -1,4 +1,4 @@
-import Header from 'components/header';
+import { Sidebar } from 'features/site/sidebar';
 import { MenuBar } from 'components/menu-bar';
 import React, { FC as withTypes, ReactNode } from 'react';
 import FadeIn from 'react-fade-in';
@@ -10,7 +10,7 @@ interface ContainerProps {
 
 const Layout: withTypes<ContainerProps> = ({ children }) => (
   <ContainerCSS>
-    <Header />
+    <Sidebar />
     <LayoutCSS>
       <FadeIn>{children}</FadeIn>
     </LayoutCSS>

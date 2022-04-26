@@ -18,11 +18,10 @@ export const Playing = styled('div', {
   justifyContent: 'flex-start',
   alignItems: 'center',
   background: '$mediumBackground',
-  padding: '$1',
+  padding: '0 $1',
   minHeight: '6rem',
-  paddingRight: '$2',
-  width: 'max-content',
   marginTop: '$1',
+  width: '100%',
 
   willChange: 'scale',
   transition: 'transform 0.3s ease',
@@ -35,7 +34,9 @@ export const Playing = styled('div', {
   },
 });
 
-export const PlayingImage = styled('div', {});
+export const PlayingImage = styled('div', {
+  height: 'fit-content',
+});
 
 export const PlayingArtist = styled('div', {
   paddingLeft: '$2',
@@ -44,11 +45,11 @@ export const PlayingArtist = styled('div', {
   flexDirection: 'column',
   paddingTop: '$2',
   alignSelf: 'flex-start',
-  maxWidth: '10rem',
-  wordWrap: 'break-word',
-  wordBreak: 'break-word',
+  width: '100%',
+
   p: {
     paddingTop: '$1',
+    wordBreak: 'break-word',
   },
 
   '@bp1': {
